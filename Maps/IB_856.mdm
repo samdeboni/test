@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map xmlns="http://www.axway.com/mappingServices/map" id="cab4409a-b0c4-477e-b7f3-9491d377b89b">
+   <signature appVersion="3.1.2" lastUpdatedOn="29/11/2017 14:48:24 -0500"/>
+   <outputBusinessDocument businessDocument="~/Business Documents/LO_IB_856.bdoc" alias="out"/>
+   <inputBusinessDocuments>
+      <inputBusinessDocument businessDocument="~/Business Documents/004010_856.bdoc" alias="in"/>
+   </inputBusinessDocuments>
+   <mapElements>
+      <mapElement elementHash="1460725475" elementPath="/cpi_event/header/map_type/">
+         <dmlExpression><![CDATA["KD_PT_CTM_OB_M40"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1163881597" elementPath="/cpi_event/content/planned_receipt/planned_receipt_item/">
+         <dmlExpression><![CDATA[%IB_856_HL_S_Loop := convertToI(this\HL\e01_0628);
+%IB_856_HL_index := %IB_856_HL_S_Loop;
+
+%IB_856_keep_looping:=true;
+
+while (%IB_856_keep_looping)
+{
+	%IB_856_HL_index:= %IB_856_HL_index + 1;
+	
+	addTrace("INFO", %IB_856_HL_S_Loop );
+	addTrace("INFO", %IB_856_HL_index );
+	
+	if (in:\TRANSACTION\G1 [where convertToI(item\HL\e01_0628) = %IB_856_HL_index][1]\HL\e03_0735 = "I")
+	then %IB_856_Num_of_HL_I:=%IB_856_HL_index - %IB_856_HL_S_Loop
+	else
+	%IB_856_keep_looping:= false;
+	
+	addTrace("INFO", %IB_856_Num_of_HL_I )
+	
+};
+%IB_856_HL_index:= %IB_856_HL_S_Loop;
+%IB_856_current_index := %IB_856_HL_index;
+
+%IB_856_Num_of_HL_I times
+]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="2139619808" elementPath="/cpi_event/content/planned_receipt/trailer_number/">
+         <dmlExpression><![CDATA[%IB_856_current_index := 0;
+in:\TRANSACTION\BSN\e02_0396]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-2085829551" elementPath="/cpi_event/header/event_type/">
+         <dmlExpression><![CDATA["create_planned_receipt"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-942307270" elementPath="/cpi_event/content/planned_receipt/delivery/">
+         <dmlExpression><![CDATA[if(isNullOrAbsent(this\REF [ where ( item\e01_0128 ) = "SI"][ 1 ] \e02_0127 )) then "NA" else this\REF [ where ( item\e01_0128 ) = "SI"][ 1 ] \e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1023227670" elementPath="/cpi_event/content/planned_receipt/expected_receive_at/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\DTM [ where ( item\e01_0374 = "017")][1]\e02_0373]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1362222525" elementPath="/Prolog/XmlVersion/">
+         <dmlExpression><![CDATA["1.0"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1558906705" elementPath="/cpi_event/header/document_type/">
+         <dmlExpression><![CDATA["LOreal_IB_856"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1114195332" elementPath="/cpi_event/content/planned_receipt/planned_receipt_item/delivery_item/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G1[  where convertToI(item\HL\e01_0628) = %IB_856_current_index ][1]\REF[ where item\e01_0128 = "IX" ][1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1793919797" elementPath="/cpi_event/content/planned_receipt/planned_receipt_item/mixed_flag/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G1 [  where convertToI(item\HL\e01_0628) = %IB_856_current_index ][1]\MAN [ where item\e01_0088 = "W" ][ 1 ]\e05_0087]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-2039174607" elementPath="/cpi_event/content/planned_receipt/planned_receipt_item/quantity/">
+         <dmlExpression><![CDATA[convertToI(in:\TRANSACTION\G1[  where convertToI(item\HL\e01_0628) = %IB_856_current_index ][1]\SN1\e02_0382)]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-623094819" elementPath="/cpi_event/content/planned_receipt/planned_receipt_item/upc_code/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G1[  where convertToI(item\HL\e01_0628) = %IB_856_current_index ][1]\LIN\e05_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1641861827" elementPath="/cpi_event/content/planned_receipt/ship_from/">
+         <dmlExpression><![CDATA[if(isNullOrAbsent(in:\TRANSACTION\G1 [where item\HL\e03_0735 = "S"]\REF [ where ( item\e01_0128 ) = "SI"][ 1 ] \e03_0352 )) then "PLANT" else in:\TRANSACTION\G1 [where item\HL\e03_0735 = "S"]\REF [ where ( item\e01_0128 ) = "SI"][ 1 ] \e03_0352]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-988936112" elementPath="/cpi_event/content/planned_receipt/planned_receipt_item/int_code/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G1[  where convertToI(item\HL\e01_0628) = %IB_856_current_index ][1]\LIN\e07_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="519042276" elementPath="/cpi_event/content/planned_receipt/planned_receipt_item/pallet_number/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G1 [  where convertToI(item\HL\e01_0628) = %IB_856_current_index ][1]\MAN[ where item\e01_0088 = "W" ][ 1 ]\e02_0087]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="86971794" elementPath="/cpi_event/header/event_uid/">
+         <dmlExpression><![CDATA[replaceStringAll(in:\HEADER\ISA\e06_I06, " ", "") + "_" + in:\HEADER\ISA\e13_I12 + "_" +in:\TRANSACTION\ST\e02_0329 +"_"+in:\HEADER\ISA\e15_I14]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-356372409" elementPath="/cpi_event/content/BSN01/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\BSN\e01_0353]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1239103097" elementPath="/cpi_event/content/planned_receipt/ship_to/">
+         <dmlExpression><![CDATA[this\G4\N1[ where item\e01_0098 = "ST" ][1]\e04_0067]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1596304505" elementPath="/Prolog/XmlEncoding/">
+         <dmlExpression><![CDATA["UTF-8"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1138351484" elementPath="/cpi_event/header/source_tenant_uid/">
+         <dmlExpression><![CDATA["LOreal_SAP_" + in:\HEADER\ISA\e15_I14]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1984498793" elementPath="/cpi_event/content/planned_receipt/planned_receipt_item/sku_code/">
+         <dmlExpression><![CDATA[%IB_856_current_index := %IB_856_current_index + 1;
+trimStringLeft(in:\TRANSACTION\G1[  where convertToI(item\HL\e01_0628) = %IB_856_current_index ][1]\LIN\e03_0234, "0")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1669395945" elementPath="/cpi_event/content/planned_receipt/">
+         <dmlExpression><![CDATA[for each in:\TRANSACTION\G1[  where item\HL\e03_0735 = "S" ]]]></dmlExpression>
+      </mapElement>
+   </mapElements>
+</map>

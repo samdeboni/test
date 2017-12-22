@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map xmlns="http://www.axway.com/mappingServices/map" id="2c6d6c7d-7bd8-4047-b390-0ca18dcad3ad">
+   <signature appVersion="3.1.2" lastUpdatedOn="29/05/2014 16:23:28 -0400"/>
+   <outputBusinessDocument businessDocument="~/Business Documents/LOreal_888_Estimate.bdoc" alias="out"/>
+   <inputBusinessDocuments>
+      <inputBusinessDocument businessDocument="~/Business Documents/004010_888.bdoc" alias="in"/>
+   </inputBusinessDocuments>
+   <mapElements>
+      <mapElement elementHash="1107227282" elementPath="/cpi_event/content/estimate/name/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\N9[where (item\e01_0128 = "Q1")][1]\e02_0127 + "-" + getDate(in:\TRANSACTION\BGN\e03_0373) + "-" + in:\TRANSACTION\G3[1]\G4[1]\G39\e03_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="109308102" elementPath="/cpi_event/content/estimate/scenarios/scenario/custom_scenario_field_5/">
+         <dmlExpression><![CDATA[getStringLeft (this\G62[ where( item\e01_0432 = "02" ) ][ 1]\e02_0373, 8)]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="98182844" elementPath="/cpi_event/content/estimate/scenarios/scenario/quoted_bom_items/quoted_bom_item/">
+         <dmlExpression><![CDATA[%IB_888_Estimate_BOM_loop_count times]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-142379874" elementPath="/Prolog/XmlVersion/">
+         <dmlExpression><![CDATA["1.0"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1376862793" elementPath="/cpi_event/content/estimate/custom_estimate_field_1/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G1\N1[where(item\e01_0098 = "DV")][ 1 ]\e02_0093]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-647115682" elementPath="/Prolog/XmlEncoding/">
+         <dmlExpression><![CDATA["UTF-8"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1680900925" elementPath="/cpi_event/content/estimate/scenarios/scenario/cases_per_pallet/">
+         <dmlExpression><![CDATA[%IB_888_Estimate_stock:="true";
+
+%IB_888_Estimate_N9H602:=this\G4[1]\N9 [ where (item\e01_0128 = "H6" )] [1]\e02_0127;
+%IB_888_Estimate_N9MR02:= this\G4[1]\N9 [ where (item\e01_0128 = "MR")] [1]\e02_0127;
+%IB_888_Estimate_N9BE02:=this\G4[1]\N9 [ where (item\e01_0128 = "BE")] [1]\e02_0127;
+%IB_888_Estimate_N9WM02:=this\G4[1]\N9 [ where (item\e01_0128 = "WM")] [1]\e02_0127;
+if(this\G4[1]\N9 [ where (item\e01_0128 = "ZZ")] [1]\e02_0127 = "N" ) then %IB_888_Estimate_stock:= "false";
+
+if( %IB_888_Estimate_N9MR02 = "ZAC2" ) then %IB_888_Estimate_itemType:= "Acces.et activite promo" else
+if( %IB_888_Estimate_N9MR02 = "ZCOM" ) then %IB_888_Estimate_itemType := "Composante (AC & vrac)" else
+if( %IB_888_Estimate_N9MR02 = "ZFG" ) then %IB_888_Estimate_itemType := "Produit fini" else
+if( %IB_888_Estimate_N9MR02 = "ZPL2" ) then %IB_888_Estimate_itemType := "PLV" else
+if( %IB_888_Estimate_N9MR02 = "ZPRO" ) then %IB_888_Estimate_itemType := "Promotion (BOM de vente)" else
+if( %IB_888_Estimate_N9MR02 = "ZPS2" ) then %IB_888_Estimate_itemType := "Taille promo" else
+if( %IB_888_Estimate_N9MR02 = "ZSF" ) then %IB_888_Estimate_itemType := "Produit semi-fini";
+
+
+%IB_888_Estimate_eachPerBox :=convertToR(this\G4[1]\QTY [ where (item\C001\e01_0355 = "BX")][1]\e02_0380);
+%IB_888_Estimate_eachPerPallet :=convertToR(this\G4[1]\QTY [ where (item\C001\e01_0355 = "PL")][1]\e02_0380);
+%IB_888_Estimate_eachPerLayer := convertToR(this\G4[1]\QTY [ where (item\C001\e01_0355 = "LR")][1]\e02_0380); 
+
+if( isNullOrAbsent( this\G4[1]\QTY [ where (item\C001\e01_0355 = "BX")][1]\e02_0380)  or  %IB_888_Estimate_eachPerBox = %IB_888_Estimate_zero) then %IB_888_Estimate_eachPerBox:= 1 else %IB_888_Estimate_eachPerBox := this\G4[1]\QTY [ where (item\C001\e01_0355 = "BX")][1]\e02_0380;
+
+if( isNullOrAbsent( this\G4[1]\QTY [ where (item\C001\e01_0355 = "PL")][1]\e02_0380)  or  %IB_888_Estimate_eachPerPallet = %IB_888_Estimate_zero) then %IB_888_Estimate_eachPerPallet:= 1 else %IB_888_Estimate_eachPerPallet := this\G4[1]\QTY [ where (item\C001\e01_0355 = "PL")][1]\e02_0380;
+
+if( isNullOrAbsent( this\G4[1]\QTY [ where (item\C001\e01_0355 = "LR")][1]\e02_0380)  or  %IB_888_Estimate_eachPerLayer = %IB_888_Estimate_zero) then %IB_888_Estimate_eachPerLayer:= 1 else %IB_888_Estimate_eachPerLayer := this\G4[1]\QTY [ where (item\C001\e01_0355 = "LR")][1]\e02_0380;
+
+formatString(%IB_888_Estimate_eachPerPallet / %IB_888_Estimate_eachPerBox, "##########D0####")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-481493429" elementPath="/cpi_event/content/estimate/expires_on/">
+         <dmlExpression><![CDATA[getStringLeft(in:\TRANSACTION\G62[where(item\e01_0432 = "64")]\e02_0373, 4) + "-" + getSubString(in:\TRANSACTION\G62[where(item\e01_0432 = "64")]\e02_0373, 5, 2) + "-" + getSubString(in:\TRANSACTION\G62[where(item\e01_0432 = "64")]\e02_0373, 7, 2)]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1052864490" elementPath="/cpi_event/content/estimate/scenarios/scenario/external_identifier/">
+         <dmlExpression><![CDATA[%IB_888_Estimate_N902 + "-" + this\G4[1]\G39\e03_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1022858966" elementPath="/cpi_event/content/estimate/scenarios/scenario/item/">
+         <dmlExpression><![CDATA[%IB_888_Estimate_G3903 := this\G4[1]\G39\e03_0234;
+%IB_888_Estimate_G3903]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-665699013" elementPath="/cpi_event/content/estimate/scenarios/scenario/">
+         <dmlExpression><![CDATA[for each in:\TRANSACTION\G3]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1621297517" elementPath="/cpi_event/content/estimate/requested_on/">
+         <dmlExpression><![CDATA[%IB_888_Estimate_GS04 := getDate(in:\HEADER\GS\e04_0027);
+%IB_888_Estimate_GS05 := getTime(in:\HEADER\GS\e05_0030);
+%IB_888_Estimate_ST02 := in:\TRANSACTION\ST\e02_0329;
+%IB_888_Estimate_BGN03 := in:\TRANSACTION\BGN\e03_0373;
+%IB_888_Estimate_N902 := in:\TRANSACTION\N9[where(item\e01_0128 = "Q1")][ 1]\e02_0127;
+getStringLeft(%IB_888_Estimate_BGN03, 4) + "-" + getSubString(%IB_888_Estimate_BGN03, 5, 2) + "-" + getSubString(%IB_888_Estimate_BGN03, 7, 2)]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-241829171" elementPath="/cpi_event/content/estimate/scenarios/scenario/quoted_bom_items/quoted_bom_item/position/">
+         <dmlExpression><![CDATA[ this\G4[%IB_888_Estimate_BOM_index]\N9[ where( item\e01_0128 = "IX" ) ][ 1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-483862597" elementPath="/cpi_event/content/estimate/scenarios/scenario/quoted_bom_items/quoted_bom_item/external_identifier/">
+         <dmlExpression><![CDATA[ %IB_888_Estimate_N902 + "-" + %IB_888_Estimate_G3903 + "-" +  this\G4[%IB_888_Estimate_BOM_index]\G39\e03_0234   + "-" + %IB_888_Estimate_GS04 + "-" + %IB_888_Estimate_GS05 + "-" + %IB_888_Estimate_ST02]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1596921422" elementPath="/cpi_event/content/estimate/custom_estimate_field_3/">
+         <dmlExpression><![CDATA[getDate(in:\TRANSACTION\G62\e02_0373)]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-941098252" elementPath="/cpi_event/content/estimate/scenarios/scenario/quoted_bom_items/quoted_bom_item/item_code/">
+         <dmlExpression><![CDATA[ this\G4[%IB_888_Estimate_BOM_index]\G39\e03_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="2049389878" elementPath="/cpi_event/content/estimate/scenarios/scenario/item_family/name/">
+         <dmlExpression><![CDATA[if(( %IB_888_Estimate_N9BE02 = "10" or %IB_888_Estimate_N9BE02 = "12" ) and ( %IB_888_Estimate_N1UZ04 ="PP" or %IB_888_Estimate_N1UZ04="P2" )) then %IB_888_Estimate_itemFamily:="LOP" else
+if( %IB_888_Estimate_N9BE02 = "13" and %IB_888_Estimate_N1UZ04 = "P5") then %IB_888_Estimate_itemFamily:="MNY" else
+if( %IB_888_Estimate_N9BE02="14" and ( %IB_888_Estimate_N1UZ04 = "PP" or %IB_888_Estimate_N1UZ04 = "P4" ) ) then %IB_888_Estimate_itemFamily:="GAR" else
+if( %IB_888_Estimate_N9BE02 = "15" and %IB_888_Estimate_N1UZ04 = "P8") then %IB_888_Estimate_itemFamily:="ESS"  else
+if( %IB_888_Estimate_N9BE02 = "20" and %IB_888_Estimate_N1UZ04 = "C2") then %IB_888_Estimate_itemFamily:="LP" else
+if(%IB_888_Estimate_N9BE02 = "21" and %IB_888_Estimate_N1UZ04 = "C4") then %IB_888_Estimate_itemFamily:="KER" else
+if(%IB_888_Estimate_N9BE02 = "22" and %IB_888_Estimate_N1UZ04 = "C8") then %IB_888_Estimate_itemFamily:= "RK" else
+if( %IB_888_Estimate_N9BE02="23" and ( %IB_888_Estimate_N1UZ04 = "C6" or %IB_888_Estimate_N1UZ04 = "C7" )) then %IB_888_Estimate_itemFamily:= "MX" else
+if(%IB_888_Estimate_N9BE02 = "24" and %IB_888_Estimate_N1UZ04 = "CA") then %IB_888_Estimate_itemFamily:="SHU" else
+if(%IB_888_Estimate_N9BE02 = "25" and %IB_888_Estimate_N1UZ04 = "CP") then %IB_888_Estimate_itemFamily:= "PO" else
+if(%IB_888_Estimate_N9BE02 = "26" and %IB_888_Estimate_N1UZ04 = "CE") then %IB_888_Estimate_itemFamily:="ESS" else
+if( %IB_888_Estimate_N9BE02 = "30" and %IB_888_Estimate_N1UZ04 = "01") then %IB_888_Estimate_itemFamily:="LC" else
+if(%IB_888_Estimate_N9BE02="31" and not( %IB_888_Estimate_N1UZ04 = "51" or %IB_888_Estimate_N1UZ04 = "52" )) then %IB_888_Estimate_itemFamily:="FG" else
+if( %IB_888_Estimate_N9BE02 = "31" and %IB_888_Estimate_N1UZ04 = "51") then %IB_888_Estimate_itemFamily:="YSL" else
+if( %IB_888_Estimate_N9BE02 = "31" and %IB_888_Estimate_N1UZ04 = "52" ) then %IB_888_Estimate_itemFamily:="RG" else
+if( %IB_888_Estimate_N9BE02 = "32" and %IB_888_Estimate_N1UZ04 = "07" ) then %IB_888_Estimate_itemFamily:="BT" else
+if( %IB_888_Estimate_N9BE02 = "33" and %IB_888_Estimate_N1UZ04 = "15") then %IB_888_Estimate_itemFamily:="FG"  else
+if(%IB_888_Estimate_N9BE02 = "34" and %IB_888_Estimate_N1UZ04 = "45") then %IB_888_Estimate_itemFamily:="KL" else
+if( %IB_888_Estimate_N9BE02 = "35" and %IB_888_Estimate_N1UZ04 = "51") then %IB_888_Estimate_itemFamily:="YSL" else
+if( %IB_888_Estimate_N9BE02 = "35" and %IB_888_Estimate_N1UZ04 = "40" ) then %IB_888_Estimate_itemFamily:="SHU" else
+if( %IB_888_Estimate_N9BE02 = "40" and %IB_888_Estimate_N1UZ04 = "52") then %IB_888_Estimate_itemFamily:="RG" else
+if( %IB_888_Estimate_N9BE02 = "40" and %IB_888_Estimate_N1UZ04 = "13") then %IB_888_Estimate_itemFamily:="VY" else
+if( %IB_888_Estimate_N9BE02 = "41" and %IB_888_Estimate_N1UZ04 = "24") then %IB_888_Estimate_itemFamily:="LRP"  else
+if( %IB_888_Estimate_N9BE02 = "42" and %IB_888_Estimate_N1UZ04 = "42") then %IB_888_Estimate_itemFamily:="SC";
+
+%IB_888_Estimate_itemFamily]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1309845039" elementPath="/cpi_event/content/estimate/reference/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\N9[where(item\e01_0128 = "Q1")][ 1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="491222200" elementPath="/cpi_event/content/estimate/scenarios/scenario/quoted_bom_items/quoted_bom_item/unit_of_measure/">
+         <dmlExpression><![CDATA[if( this\G4[%IB_888_Estimate_BOM_index]\QTY[where(item\e01_0673 = "11")][ 1]\C001\e01_0355 = "EA") then "eaches" else if( this\G4[%IB_888_Estimate_BOM_index]\QTY[where(item\e01_0673 = "11")][ 1]\C001\e01_0355 = "BX") then "cases" else if( this\G4[%IB_888_Estimate_BOM_index]\QTY[where(item\e01_0673 = "11")][ 1]\C001\e01_0355 = "PL") then "pallets"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="2147421880" elementPath="/cpi_event/content/estimate/scenarios/scenario/custom_scenario_field_2/">
+         <dmlExpression><![CDATA[this\G4[1]\N9[ where( item\e01_0128 = "H6" ) ][ 1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1412044062" elementPath="/cpi_event/content/estimate/scenarios/scenario/description/">
+         <dmlExpression><![CDATA[%IB_888_Estimate_NTE_loop:= count( this\NTE );
+addTrace( "INFO", %IB_888_Estimate_NTE_loop );
+ 
+%IB_888_Estimate_NTE_loop_index:=1;
+%IB_888_Estimate_Notes:="";
+
+while (%IB_888_Estimate_NTE_loop_index <= %IB_888_Estimate_NTE_loop)
+{
+	addTrace( "INFO", %IB_888_Estimate_NTE_loop_index + "loop index before" );
+	addTrace( "INFO", %IB_888_Estimate_Notes + "is the IB_888_Estimate_Notes" );
+	
+	%IB_888_Estimate_Notes:=%IB_888_Estimate_Notes + this\NTE [%IB_888_Estimate_NTE_loop_index] \e02_0352 + " ";
+	%IB_888_Estimate_NTE_loop_index:= %IB_888_Estimate_NTE_loop_index + 1;
+	addTrace( "INFO", %IB_888_Estimate_NTE_loop_index + "loop index" );
+	addTrace( "INFO", %IB_888_Estimate_NTE_loop + "number of loops")
+};
+
+%IB_888_Estimate_Notes]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1150100858" elementPath="/cpi_event/content/estimate/scenarios/scenario/item_category/">
+         <dmlExpression><![CDATA[""]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1737769107" elementPath="/cpi_event/content/estimate/custom_estimate_field_2/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\N9[where(item\e01_0128 ="8X")][ 1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-956819855" elementPath="/cpi_event/content/estimate/scenarios/scenario/item_description/">
+         <dmlExpression><![CDATA[this\G4[1]\G69[1]\e01_0369]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1860152100" elementPath="/cpi_event/content/estimate/scenarios/scenario/quoted_bom_items/quoted_bom_item/quantity/">
+         <dmlExpression><![CDATA[this\G4[%IB_888_Estimate_BOM_index]\QTY[ where( item\e01_0673 = "11" ) ][ 1]\e02_0380]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-2007790215" elementPath="/cpi_event/content/estimate/scenarios/scenario/custom_scenario_field_4/">
+         <dmlExpression><![CDATA[formatString(this\G4[ 1]\QTY[ where( item\e01_0673 = "38" and item\C001\e01_0355 = "PH") ][ 1]\e02_0380, "#########0D0#####")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-445278744" elementPath="/cpi_event/content/estimate/scenarios/scenario/unit_of_measure/">
+         <dmlExpression><![CDATA[if(this\G4[1]\QTY[where(item\e01_0673 = "AY")][ 1]\C001\e01_0355 = "EA") then "eaches" else if(this\G4[1]\QTY[where(item\e01_0673 = "AY")][ 1]\C001\e01_0355 = "BX") then "cases" else if(this\G4[1]\QTY[where(item\e01_0673 = "AY")][ 1]\C001\e01_0355 = "PL") then "pallets"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1872332085" elementPath="/cpi_event/content/estimate/scenarios/scenario/item_type/">
+         <dmlExpression><![CDATA[""]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-567263894" elementPath="/cpi_event/content/estimate/customer/">
+         <dmlExpression><![CDATA[""]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1969785556" elementPath="/cpi_event/header/event_uid/">
+         <dmlExpression><![CDATA["Estimate" + replaceStringAll(in:\HEADER\ISA\e06_I06, " ", "") + "_" + in:\HEADER\ISA\e13_I12 + "_" +in:\TRANSACTION\ST\e02_0329 +"_"+in:\HEADER\ISA\e15_I14  + "_"+ formatString(getDate(in:\HEADER\GS\e04_0027), "########")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1021753639" elementPath="/cpi_event/header/document_type/">
+         <dmlExpression><![CDATA["LO_IB_888_Create_Estimate"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1134192869" elementPath="/cpi_event/header/source_tenant_uid/">
+         <dmlExpression><![CDATA["LOreal_SAP_" + in:\HEADER\ISA\e15_I14]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-939439824" elementPath="/cpi_event/content/estimate/scenarios/scenario/item_category/name/">
+         <dmlExpression><![CDATA[%IB_888_Estimate_itemCategoryPart1 + "_"+ %IB_888_Estimate_N98X02]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-111843910" elementPath="/cpi_event/content/estimate/scenarios/scenario/custom_scenario_field_3/">
+         <dmlExpression><![CDATA[this\G4[ 1]\G39\e24_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="911606922" elementPath="/cpi_event/content/estimate/scenarios/scenario/volume/">
+         <dmlExpression><![CDATA[formatString(this\G4[ 1]\QTY[ where( item\e01_0673 = "AY")][1]\e02_0380, "##########D0###")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1030129529" elementPath="/cpi_event/content/estimate/scenarios/scenario/custom_scenario_field_1/">
+         <dmlExpression><![CDATA[ if( this\G53\e01_0875 = "001") then %IB_888_Estimate_customScenarioField1 := "CHANGE" else if( this\G53\e01_0875 = "002") then %IB_888_Estimate_customScenarioField1 := "DELETE" else %IB_888_Estimate_customScenarioField1 := "NEW";
+%IB_888_Estimate_customScenarioField1]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1294614966" elementPath="/cpi_event/content/estimate/scenarios/scenario/quoted_bom_items/quoted_bom_item/description/">
+         <dmlExpression><![CDATA[ %IB_888_Estimate_BOM_index:=1 + %IB_888_Estimate_BOM_index;
+ this\G4[%IB_888_Estimate_BOM_index]\G69[1]\e01_0369]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="196858331" elementPath="/cpi_event/content/estimate/external_identifier/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\N9[where(item\e01_0128 = "Q1")][ 1]\e02_0127 + "-" + getDate( in:\HEADER\GS\e04_0027) + "-" + getTime ( in:\HEADER\GS\e05_0030 ) + "-" + in:\TRANSACTION\ST\e02_0329]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1696192111" elementPath="/cpi_event/content/estimate/plant_code/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G1[1]\N1[where(item\e01_0098 = "28")]\e04_0067]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1153976073" elementPath="/cpi_event/content/estimate/scenarios/scenario/status/">
+         <dmlExpression><![CDATA[if( this\G53\e01_0875 = "002" ) then "cancelled" else "needs_estimate"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1222858832" elementPath="/cpi_event/header/event_type/">
+         <dmlExpression><![CDATA["create_estimate"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="809989218" elementPath="/cpi_event/content/estimate/scenarios/scenario/eaches_per_case/">
+         <dmlExpression><![CDATA[if (this\G4[1]\QTY[ where( item\e01_0673 = "38" and item\C001\e01_0355 = "BX") ][1]\e02_0380 = 0 or isNullOrAbsent(this\G4[1]\QTY[ where( item\e01_0673 = "38" and item\C001\e01_0355 = "BX") ][1]\e02_0380)) then "1.0" else  formatString(this\G4[1]\QTY[ where( item\e01_0673 = "38" and item\C001\e01_0355 = "BX") ][1]\e02_0380, "###########D0#####")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1509286083" elementPath="/cpi_event/content/estimate/estimated_on/">
+         <dmlExpression><![CDATA[""]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-625089242" elementPath="/cpi_event/content/estimate/scenarios/scenario/item_type/name/">
+         <dmlExpression><![CDATA[%IB_888_Estimate_BOM_loop_count:=count(this\G4\G39)-1 ;
+%IB_888_Estimate_BOM_index:=1;
+%IB_888_Estimate_itemType]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-2014591216" elementPath="/cpi_event/content/estimate/scenarios/scenario/item_family/">
+         <dmlExpression><![CDATA[""]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-161253968" elementPath="/cpi_event/content/estimate/scenarios/scenario/name/">
+         <dmlExpression><![CDATA[%IB_888_Estimate_N902 + "-" + getStringLeft(%IB_888_Estimate_BGN03, 8) + "-" + this\G4[ 1]\G39\e03_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-787348980" elementPath="/cpi_event/content/estimate/customer/code/">
+         <dmlExpression><![CDATA["LOR"]]></dmlExpression>
+      </mapElement>
+   </mapElements>
+</map>

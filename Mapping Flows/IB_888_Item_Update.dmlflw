@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow xmlns="http://www.axway.com/mappingServices/flow" id="27009602-c5c1-4480-a6ab-ecdc8b1a16ea">
+   <signature appVersion="3.1.2" lastUpdatedOn="12/09/2017 19:24:31 -0400"/>
+   <configurationParameters>
+      <configurationParameter name="stopOnFirstOutputFacetCheckError" value="true"/>
+      <configurationParameter name="stopOnFirstInputCheckConstraintsError" value="true"/>
+      <configurationParameter name="stopOnFirstOutputCheckConstraintsError" value="true"/>
+      <configurationParameter name="checkOutputCheckConstraints" value="false"/>
+      <configurationParameter name="checkInputFacet" value="true"/>
+      <configurationParameter name="continueMessageProcessingOnError" value="false"/>
+      <configurationParameter name="checkInputCheckConstraints" value="false"/>
+      <configurationParameter name="groupAllResultingInstances" value="false"/>
+      <configurationParameter name="checkOutputFacet" value="false"/>
+      <configurationParameter name="keepExactValue" value="false"/>
+      <configurationParameter name="stopOnFirstInputFacetCheckError" value="true"/>
+      <configurationParameter name="copyAllAttributes" value="false"/>
+   </configurationParameters>
+   <graphLinks>
+      <graphLink factoryType="FlowMainLink" name="FlowLink1" type="TYPE_INPUT" connectedObjectAlias="in" hash="2ae5440a-8f1d-489a-a042-32d86fd3d558">
+         <source ref="0bbd24fa-c713-4a83-8b19-bbe95484aba4"/>
+         <target ref="1805c967-4813-4f3d-8867-c467befe36a7"/>
+      </graphLink>
+      <graphLink factoryType="FlowMainLink" name="FlowLink2" type="TYPE_OUTPUT" connectedObjectAlias="out" hash="52285053-71b3-4734-bf3f-f86e9c5c0539">
+         <source ref="47f8e643-a68a-4cdf-95d9-19bd2de13d2f"/>
+         <target ref="001d9966-f103-4c01-8917-021421d70a5a"/>
+      </graphLink>
+      <graphLink name="Link1" hash="b905729c-ef26-48bd-8c58-2302aaad878c">
+         <source ref="afffffb3-d276-40e4-b0b2-7c817b257b32"/>
+         <target ref="0bbd24fa-c713-4a83-8b19-bbe95484aba4"/>
+      </graphLink>
+      <graphLink name="Link2" hash="178ee1a6-c37e-4c7c-b734-a7503480c541">
+         <source ref="001d9966-f103-4c01-8917-021421d70a5a"/>
+         <target ref="f069880b-9c82-42d7-8ad9-2ed05e773714"/>
+      </graphLink>
+   </graphLinks>
+   <graphNodes>
+      <graphNode factoryType="GraphicalInstructionBlock" name="Main_Block_IB_888_Item_Update1" nameDisplayed="true" hash="1805c967-4813-4f3d-8867-c467befe36a7">
+         <bounds x="550" height="220" width="286" y="186"/>
+         <intructions>
+            <instruction factoryType="GraphicalInstructionMap" name="IB_888_Item_Update" nameDisplayed="true" mapName="~/Maps/IB_888_Item_Update.mdm" hash="47f8e643-a68a-4cdf-95d9-19bd2de13d2f">
+               <bounds x="50" height="80" width="180" y="100"/>
+            </instruction>
+         </intructions>
+      </graphNode>
+      <graphNode factoryType="GraphicalBusinessDocumentEntity" name="004010_888" hash="0bbd24fa-c713-4a83-8b19-bbe95484aba4">
+         <bounds x="365" height="80" width="180" y="266"/>
+         <documentName>~/Business Documents/004010_888.bdoc</documentName>
+      </graphNode>
+      <graphNode factoryType="GraphicalBusinessDocumentEntity" name="LOreal_IB_888" hash="001d9966-f103-4c01-8917-021421d70a5a">
+         <bounds x="917" height="80" width="180" y="292"/>
+         <documentName>~/Business Documents/LOreal_IB_888.bdoc</documentName>
+      </graphNode>
+      <graphNode factoryType="InputEntity" name="Input" hash="afffffb3-d276-40e4-b0b2-7c817b257b32">
+         <bounds x="160" height="80" width="180" y="240"/>
+      </graphNode>
+      <graphNode factoryType="OutputEntity" name="out1" hash="f069880b-9c82-42d7-8ad9-2ed05e773714">
+         <bounds x="1160" height="80" width="180" y="291"/>
+      </graphNode>
+   </graphNodes>
+</flow>

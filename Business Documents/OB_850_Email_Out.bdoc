@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<businessDocument xmlns="http://www.axway.com/mappingServices/flatFileBusinessDocument" keepInputNumberFractionDigits="true" encodingBD="iso8859" keepPlusSign="true" keepDecimalSeparator="true" id="88efb296-532a-48d9-990b-5efb30e29ffa" keepDecimalSeparatorCharacter="true">
+   <signature appVersion="3.1.2" lastUpdatedOn="20/01/2014 13:51:46 -0500"/>
+   <childElements>
+      <childElement factoryType="FlatFileParent" order="1" label="Root" name="Root" parentDelimiterElementValue="0x0a" parentDelimiterElement="2" hash="1977691298">
+         <cardinality minimum="1" maximum="1"/>
+         <childElements>
+            <childElement factoryType="FlatFileParent" order="2" name="po_item" parentDelimiterElementValue="0x0a" parentDelimiterElement="2" hash="1820896250">
+               <cardinality minimum="1" maximum="1"/>
+               <childElements>
+                  <childElement factoryType="FlatFileLandMark" keepInputNumberFractionDigits="true" definition="30" typeId="10" leafDelimiterElementValue="0x0a" paddingCharElement=" " name="po_item" defaultValue="po_item" leafDelimiterElement="2" paddingPosElement="1" order="3" keepDecimalSeparator="true" encodingElement="iso8859" hash="37574710" allowDistortion="true">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="FlatFileLeaf" keepInputNumberFractionDigits="true" definition="50" typeId="10" paddingCharElement=" " name="code" paddingPosElement="1" order="4" keepDecimalSeparator="true" encodingElement="iso8859" hash="1603838504" allowDistortion="true">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="FlatFileParent" order="5" name="sent_to" parentDelimiterElementValue="0x0a" parentDelimiterElement="2" hash="-1407299459">
+               <cardinality minimum="1" maximum="1"/>
+               <childElements>
+                  <childElement factoryType="FlatFileLandMark" keepInputNumberFractionDigits="true" definition="20" typeId="10" paddingCharElement=" " name="sent_to" defaultValue="sent_to" paddingPosElement="1" order="6" keepDecimalSeparator="true" encodingElement="iso8859" hash="-1242992671" allowDistortion="true">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="FlatFileLeaf" keepInputNumberFractionDigits="true" definition="50" typeId="10" paddingCharElement=" " name="plant_name" paddingPosElement="1" order="7" keepDecimalSeparator="true" encodingElement="iso8859" hash="1835758980" allowDistortion="true">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="FlatFileParent" order="8" name="for_item" parentDelimiterElementValue="0x0a" parentDelimiterElement="2" hash="-1890296343">
+               <cardinality minimum="1" maximum="1"/>
+               <childElements>
+                  <childElement factoryType="FlatFileLandMark" keepInputNumberFractionDigits="true" definition="20" typeId="10" paddingCharElement=" " name="for_item" defaultValue="for_item" paddingPosElement="1" order="9" keepDecimalSeparator="true" encodingElement="iso8859" hash="1416167053" allowDistortion="true">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="FlatFileLeaf" keepInputNumberFractionDigits="true" definition="50" typeId="10" paddingCharElement=" " name="cpc" paddingPosElement="1" order="10" keepDecimalSeparator="true" encodingElement="iso8859" hash="-874865532" allowDistortion="true">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="FlatFileParent" order="11" name="status" parentDelimiterElementValue="0x0a" parentDelimiterElement="2" hash="1839143016">
+               <cardinality minimum="1" maximum="1"/>
+               <childElements>
+                  <childElement factoryType="FlatFileLandMark" keepInputNumberFractionDigits="true" definition="70" typeId="10" leafDelimiterElementValue="0x0a" paddingCharElement=" " name="status" defaultValue="status" leafDelimiterElement="2" paddingPosElement="1" order="12" keepDecimalSeparator="true" encodingElement="iso8859" hash="338998000" allowDistortion="true">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="FlatFileLeaf" keepInputNumberFractionDigits="true" definition="10" typeId="10" paddingCharElement=" " name="project_status" paddingPosElement="1" order="13" keepDecimalSeparator="true" encodingElement="iso8859" hash="-1121025431" allowDistortion="true">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="FlatFileParent" order="14" name="contact" parentDelimiterElementValue="0x0a" parentDelimiterElement="2" hash="-379804243">
+               <cardinality minimum="1" maximum="1"/>
+               <childElements>
+                  <childElement factoryType="FlatFileLandMark" keepInputNumberFractionDigits="true" definition="90" typeId="10" paddingCharElement=" " name="contact" defaultValue="contact" paddingPosElement="1" order="15" keepDecimalSeparator="true" encodingElement="iso8859" hash="-426875402" allowDistortion="true">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="FlatFileLeaf" keepInputNumberFractionDigits="true" definition="50" typeId="10" leafDelimiterElementValue="0x0a" paddingCharElement=" " name="thank_you" leafDelimiterElement="2" paddingPosElement="1" order="16" keepDecimalSeparator="true" encodingElement="iso8859" hash="-740984668" allowDistortion="true">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+         </childElements>
+      </childElement>
+   </childElements>
+</businessDocument>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<businessDocument xmlns="http://www.axway.com/mappingServices/xmlBusinessDocument" id="9eef5828-5697-48db-9d05-d5c9273eb548" keepDecimalSeparatorCharacter="true" keepDecimalSeparator="true" keepInputNumberFractionDigits="true" encodingBD="utf8" keepPlusSign="true">
+   <signature appVersion="3.1.2" lastUpdatedOn="12/06/2014 13:46:24 -0400"/>
+   <childElements>
+      <childElement factoryType="XmlProlog" order="1" name="Prolog" label="Prolog xml" hash="-404459286">
+         <cardinality minimum="1" maximum="1"/>
+         <childElements>
+            <childElement factoryType="XmlLeaf" hash="1692248120" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" label="Version" keepDecimalSeparator="true" defaultValue="1.0" order="2" encodingElement="iso8859" name="XmlVersion">
+               <cardinality minimum="1" maximum="1"/>
+            </childElement>
+            <childElement factoryType="XmlLeaf" hash="-1897043112" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" label="Encoding" nullable="true" keepDecimalSeparator="true" defaultValue="utf8" order="3" encodingElement="iso8859" name="XmlEncoding">
+               <cardinality maximum="1"/>
+            </childElement>
+            <childElement factoryType="XmlLeaf" hash="1873050459" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" label="XmlVersion" nullable="true" keepDecimalSeparator="true" order="4" encodingElement="iso8859" name="XmlStandalone">
+               <cardinality maximum="1"/>
+            </childElement>
+            <childElement factoryType="XmlLeaf" hash="-829516490" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" label="DocType" nullable="true" keepDecimalSeparator="true" order="5" encodingElement="iso8859" name="XmlDocType">
+               <cardinality maximum="1"/>
+            </childElement>
+            <childElement factoryType="XmlLeaf" hash="478926755" typeId="10" definition="2000" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" label="Comments" nullable="true" keepDecimalSeparator="true" order="6" encodingElement="iso8859" name="XmlComments">
+               <cardinality/>
+            </childElement>
+            <childElement factoryType="XmlLeaf" hash="-1750056716" typeId="10" definition="2000" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" label="CommProcessInstents" nullable="true" keepDecimalSeparator="true" order="7" encodingElement="iso8859" name="XmlProcessInst">
+               <cardinality/>
+            </childElement>
+         </childElements>
+      </childElement>
+      <childElement factoryType="XmlParent" order="8" name="cpi_event" xmlNamespace="-1" hash="1414606975">
+         <cardinality minimum="1" maximum="1"/>
+         <childElements>
+            <childElement factoryType="XmlParent" order="9" name="header" xmlNamespace="-1" hash="523136398">
+               <cardinality minimum="1" maximum="1"/>
+               <childElements>
+                  <childElement factoryType="XmlLeaf" hash="90841167" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" keepDecimalSeparator="true" defaultValue="ctm_montreal_demo" order="10" encodingElement="iso8859" name="source_tenant_uid">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="XmlLeaf" hash="-307893603" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" keepDecimalSeparator="true" defaultValue="shipment_shipped" order="11" encodingElement="iso8859" name="event_type">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="XmlLeaf" hash="282222255" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" keepDecimalSeparator="true" defaultValue="2f2bdd62-da05-11e3-92c8-0050569206d5" order="12" encodingElement="iso8859" name="event_uid">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="XmlLeaf" hash="44830485" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" keepDecimalSeparator="true" defaultValue="LOreal_OB_945" order="13" encodingElement="iso8859" name="map_type">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="XmlLeaf" hash="-1999224141" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" keepDecimalSeparator="true" defaultValue="demo" order="14" encodingElement="iso8859" name="environment">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="XmlLeaf" hash="-1980899539" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" keepDecimalSeparator="true" defaultValue="LOreal_SAP_T" order="15" encodingElement="iso8859" name="destination_tenant_uid">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="XmlLeaf" hash="-672608055" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" keepDecimalSeparator="true" defaultValue="L&apos;Oreal_OB_945_Shipment_CTM TESTING" order="16" encodingElement="iso8859" name="document_type">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="XmlLeaf" hash="-1390760596" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" keepDecimalSeparator="true" defaultValue="330_1031_2f2bdd62-da05-11e3-92c8-0050569206d5_0" order="17" encodingElement="iso8859" name="document_uid">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="XmlParent" order="18" name="content" xmlNamespace="-1" hash="-776407835">
+               <cardinality minimum="1" maximum="1"/>
+               <childElements>
+                  <childElement factoryType="XmlParent" order="19" name="w06" xmlNamespace="-1" hash="-143925283">
+                     <cardinality minimum="1" maximum="1"/>
+                     <childElements>
+                        <childElement factoryType="XmlLeaf" hash="-1023762022" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="20" encodingElement="iso8859" name="w0601">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="XmlLeaf" hash="-174373682" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" keepDecimalSeparator="true" order="21" encodingElement="utf8" name="w0602">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="XmlParent" order="22" name="n1" xmlNamespace="-1" hash="-440042719">
+                     <cardinality minimum="1"/>
+                     <childElements>
+                        <childElement factoryType="XmlLeaf" hash="-1864758176" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="23" encodingElement="iso8859" name="n101">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="XmlLeaf" hash="-1156072775" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="24" encodingElement="iso8859" name="n102">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="XmlLeaf" hash="74423911" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="25" encodingElement="iso8859" name="n103">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="XmlLeaf" hash="1305584355" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="26" encodingElement="iso8859" name="n104">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="XmlParent" order="27" name="g62" xmlNamespace="-1" hash="46894812">
+                     <cardinality minimum="1" maximum="1"/>
+                     <childElements>
+                        <childElement factoryType="XmlLeaf" hash="-1587759787" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="28" encodingElement="iso8859" name="g6201">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="XmlLeaf" hash="-2118990325" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="29" encodingElement="utf8" name="g6202">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="XmlParent" order="30" name="man" xmlNamespace="-1" hash="1319624227">
+                     <cardinality minimum="1"/>
+                     <childElements>
+                        <childElement factoryType="XmlParent" order="31" name="lx" xmlNamespace="-1" hash="1100804615">
+                           <cardinality minimum="1" maximum="1"/>
+                           <childElements>
+                              <childElement factoryType="XmlLeaf" hash="-1242264870" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="32" encodingElement="utf8" name="lx01">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                        <childElement factoryType="XmlLeaf" hash="1324039169" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="33" encodingElement="iso8859" name="man01">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="XmlLeaf" hash="-1655332778" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="34" encodingElement="iso8859" name="man02">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="XmlParent" order="35" name="item" xmlNamespace="-1" hash="-281021189">
+                           <cardinality minimum="1"/>
+                           <childElements>
+                              <childElement factoryType="XmlParent" order="36" name="w12" xmlNamespace="-1" hash="-1948820511">
+                                 <cardinality minimum="1" maximum="1"/>
+                                 <childElements>
+                                    <childElement factoryType="XmlLeaf" hash="1368799538" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="37" encodingElement="iso8859" name="w1201">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="XmlLeaf" signMinusPos="1" hash="-935632571" signPlus="+" typeId="50" definition="18,6" paddingCharElement="0" xmlNamespace="-1" allowDistortion="true" decimalCharElement="." signPlusPos="1" signMinus="-" nullable="true" expoChar="e" keepDecimalSeparator="true" order="38" pattern="p,s" encodingElement="utf8" name="w1202">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="XmlLeaf" hash="-1174046273" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="39" encodingElement="iso8859" name="w1205">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="XmlLeaf" hash="-2038297824" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="40" encodingElement="iso8859" name="w1207">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="XmlLeaf" hash="-1298141740" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="41" encodingElement="iso8859" name="w1208">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="XmlLeaf" hash="1547773457" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="42" encodingElement="iso8859" name="w1209">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="XmlLeaf" hash="-1438693283" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="43" encodingElement="iso8859" name="w1217">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="XmlLeaf" hash="-1833803511" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="44" encodingElement="iso8859" name="w1218">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                 </childElements>
+                              </childElement>
+                              <childElement factoryType="XmlParent" order="45" name="n9" xmlNamespace="-1" hash="-1971236855">
+                                 <cardinality minimum="1" maximum="1"/>
+                                 <childElements>
+                                    <childElement factoryType="XmlLeaf" hash="-1887594409" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="46" encodingElement="utf8" name="n901">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="XmlLeaf" hash="-1412544464" typeId="10" definition="0,255" paddingCharElement=" " xmlNamespace="-1" allowDistortion="true" nullable="true" keepDecimalSeparator="true" order="47" encodingElement="utf8" name="n902">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                 </childElements>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+               </childElements>
+            </childElement>
+         </childElements>
+      </childElement>
+   </childElements>
+</businessDocument>

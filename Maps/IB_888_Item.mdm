@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map xmlns="http://www.axway.com/mappingServices/map" id="c6a04c13-f055-4f84-830f-c845e9255a5d">
+   <signature appVersion="3.1.2" lastUpdatedOn="29/05/2014 16:23:55 -0400"/>
+   <outputBusinessDocument businessDocument="~/Business Documents/IB_888_Item.bdoc" alias="out"/>
+   <inputBusinessDocuments>
+      <inputBusinessDocument businessDocument="~/Business Documents/004010_888.bdoc" alias="in"/>
+   </inputBusinessDocuments>
+   <mapElements>
+      <mapElement elementHash="-826553050" elementPath="/cpi_event/content/G53_segment/sku/auto_backflush/">
+         <dmlExpression><![CDATA[if( %IB_888_Item_stock = "true" ) then "Activate Autobackflush" else "NO Autobackflush"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-2040667523" elementPath="/cpi_event/content/G53_segment/sku/top_level_flag/">
+         <dmlExpression><![CDATA[%IB_888_Item_G39_loop_count:=%IB_888_Item_G39_loop_count + 1;
+if( %IB_888_Item_G62_loop_count = 1 and %IB_888_Item_G39_loop_count = 1) then "true" else "false"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-921235209" elementPath="/cpi_event/content/G53_segment/sku/plant_code/">
+         <dmlExpression><![CDATA[%IB_888_Item_stock:="true";
+
+%IB_888_Item_N9H602:=this\N9 [ where (item\e01_0128 = "H6" )] [1]\e02_0127;
+%IB_888_Item_N9MR02:= this\N9 [ where (item\e01_0128 = "MR")] [1]\e02_0127;
+%IB_888_Item_N9BE02:=this\N9 [ where (item\e01_0128 = "BE")] [1]\e02_0127;
+%IB_888_Item_N9WM02:=this\N9 [ where (item\e01_0128 = "WM")] [1]\e02_0127;
+if(this\N9 [ where (item\e01_0128 = "ZZ")] [1]\e02_0127 = "N" ) then %IB_888_Item_stock:= "false";
+
+if( %IB_888_Item_N9MR02 = "ZAC2" ) then %IB_888_Item_itemType:= "Acces.et activite promo" else
+if( %IB_888_Item_N9MR02 = "ZCOM" ) then %IB_888_Item_itemType := "Composante (AC & vrac)" else
+if( %IB_888_Item_N9MR02 = "ZFG" ) then %IB_888_Item_itemType := "Produit fini" else
+if( %IB_888_Item_N9MR02 = "ZPL2" ) then %IB_888_Item_itemType := "PLV" else
+if( %IB_888_Item_N9MR02 = "ZPRO" ) then %IB_888_Item_itemType := "Promotion (BOM de vente)" else
+if( %IB_888_Item_N9MR02 = "ZPS2" ) then %IB_888_Item_itemType := "Taille promo" else
+if( %IB_888_Item_N9MR02 = "ZSF" ) then %IB_888_Item_itemType := "Produit semi-fini";
+
+in:\TRANSACTION\G1\N1 [where (item\e01_0098 = "28" )][1]\e04_0067]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-506829922" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_10/">
+         <dmlExpression><![CDATA[this\N9 [where (item\e01_0128 = "H6")][1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-2140963181" elementPath="/cpi_event/content/G53_segment/sku/bom_items/bom_item/unit_quantity/">
+         <dmlExpression><![CDATA[if ( not(%IB_888_Item_BOM_loop_count = 1) ) then this\QTY [ where (item\e01_0673 = "11")][1]\e02_0380]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="986326298" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_20/">
+         <dmlExpression><![CDATA[this\G5\PAL[2]\e08_0189]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="955338210" elementPath="/cpi_event/content/G53_segment/sku/alternate_code_2/">
+         <dmlExpression><![CDATA[this\G6\G55[1]\e02_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1061077155" elementPath="/cpi_event/content/G53_segment/sku/cases_per_pallet/">
+         <dmlExpression><![CDATA[%IB_888_Item_eachPerBox :=convertToR(this\QTY [ where (item\C001\e01_0355 = "BX")][1]\e02_0380);
+%IB_888_Item_eachPerPallet :=convertToR(this\QTY [ where (item\C001\e01_0355 = "PL")][1]\e02_0380);
+%IB_888_Item_eachPerLayer := convertToR(this\QTY [ where (item\C001\e01_0355 = "LR")][1]\e02_0380); 
+
+if( isNullOrAbsent( this\QTY [ where (item\C001\e01_0355 = "BX")][1]\e02_0380)  or  %IB_888_Item_eachPerBox = %IB_888_Item_zero) then %IB_888_Item_eachPerBox:= 1 else %IB_888_Item_eachPerBox := this\QTY [ where (item\C001\e01_0355 = "BX")][1]\e02_0380;
+
+if( isNullOrAbsent( this\QTY [ where (item\C001\e01_0355 = "PL")][1]\e02_0380)  or  %IB_888_Item_eachPerPallet = %IB_888_Item_zero) then %IB_888_Item_eachPerPallet:= 1 else %IB_888_Item_eachPerPallet := this\QTY [ where (item\C001\e01_0355 = "PL")][1]\e02_0380;
+
+if( isNullOrAbsent( this\QTY [ where (item\C001\e01_0355 = "LR")][1]\e02_0380)  or  %IB_888_Item_eachPerLayer = %IB_888_Item_zero) then %IB_888_Item_eachPerLayer:= 1 else %IB_888_Item_eachPerLayer := this\QTY [ where (item\C001\e01_0355 = "LR")][1]\e02_0380;
+
+formatString(round(%IB_888_Item_eachPerPallet/ %IB_888_Item_eachPerBox, 6), "#######D#######")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="7212122" elementPath="/cpi_event/header/event_type/">
+         <dmlExpression><![CDATA["create_item"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="457065511" elementPath="/cpi_event/content/G53_segment/sku/bom_items/">
+         <dmlExpression><![CDATA[%IB_888_Item_BOM_loop_count times]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="2142567923" elementPath="/cpi_event/content/G53_segment/sku/item_type/">
+         <dmlExpression><![CDATA[""]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="248636078" elementPath="/cpi_event/content/G53_segment/sku/track_pallets/">
+         <dmlExpression><![CDATA[if( %IB_888_Item_stock = "false" ) then "NO Track pallets" else
+if( not(%IB_888_Item_G62_loop_count = 1) and %IB_888_Item_G39_loop_count =1) then "NO Track pallets" else
+"Activate Track Pallets"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1696790297" elementPath="/cpi_event/content/G53_segment/sku/WM_Poids_Mesures_code/">
+         <dmlExpression><![CDATA[%IB_888_Item_N9WM02]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1505076035" elementPath="/cpi_event/content/G53_segment/sku/auto_quarantine_on_receive/">
+         <dmlExpression><![CDATA[if( %IB_888_Item_stock = "false" ) then "No auto-quarantine" else
+if( not( %IB_888_Item_G62_loop_count = 1 ) and %IB_888_Item_G39_loop_count = 1 ) then  "No auto-quarantine" else
+if ( %IB_888_Item_N9H602 = "N" ) then  "No auto-quarantine" else
+"Activate auto-quarantine"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-7805585" elementPath="/cpi_event/content/G53_segment/sku/code/">
+         <dmlExpression><![CDATA[trimStringLeft(this\G39 [ 1 ]\e03_0234, "0")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="3231536" elementPath="/cpi_event/content/G53_segment/sku/BE_Secteur_Activity_code/">
+         <dmlExpression><![CDATA[%IB_888_Item_N9BE02]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1741161114" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_14/">
+         <dmlExpression><![CDATA[if( %IB_888_Item_stock = "true" ) then "Y" else "N"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1240818765" elementPath="/cpi_event/content/G53_segment/sku/bom_items/bom_item/">
+         <dmlExpression><![CDATA[for each in:\TRANSACTION\G3 [%IB_888_Item_G62_loop_count]\G4]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1197478562" elementPath="/cpi_event/content/G53_segment/sku/DV_Division_code/">
+         <dmlExpression><![CDATA[%IB_888_Item_N1DV04]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1411976391" elementPath="/cpi_event/header/event_uid/">
+         <dmlExpression><![CDATA[%IB_888_Item_G62_loop_count:=0;
+%IB_888_Item_N98X02:=in:\TRANSACTION\N9 [where (item\e01_0128 = "8X")][1]\e02_0127;
+%IB_888_Item_N1UZ04:= in:\TRANSACTION\G1[ where ( item\N1\e01_0098 = "UZ")][1]\N1\e04_0067;
+%IB_888_Item_N1DV04:= in:\TRANSACTION\G1[ where ( item\N1\e01_0098 = "DV")][1]\N1\e04_0067;
+
+ "Item" + replaceStringAll(in:\HEADER\ISA\e06_I06, " ", "") + "_" + in:\HEADER\ISA\e13_I12 + "_" +in:\TRANSACTION\ST\e02_0329 +"_"+in:\HEADER\ISA\e15_I14 +  "_"+ formatString(getDate(in:\HEADER\GS\e04_0027), "########")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1320311427" elementPath="/cpi_event/content/G53_segment/sku/customer_product_code/">
+         <dmlExpression><![CDATA[trimStringLeft(this\G39 [ 1 ]\e03_0234, "0")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-118427649" elementPath="/Prolog/XmlEncoding/">
+         <dmlExpression><![CDATA["ISO-8859-1"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="246157278" elementPath="/cpi_event/content/G53_segment/sku/bom_items/bom_item/external_identifier/">
+         <dmlExpression><![CDATA[if ( not(%IB_888_Item_BOM_loop_count = 1) ) then this\G39\e03_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="290079860" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_8/">
+         <dmlExpression><![CDATA[this\G5[1]\PAL[2]\e09_0065]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-852897123" elementPath="/cpi_event/content/G53_segment/sku/bom_items/bom_item/subcomponent_customer_product_code/">
+         <dmlExpression><![CDATA[if ( not(%IB_888_Item_BOM_loop_count = 1) ) then this\G39\e03_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1543364272" elementPath="/cpi_event/content/G53_segment/sku/item_family/">
+         <dmlExpression><![CDATA[""]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="599811509" elementPath="/cpi_event/content/G53_segment/sku/item_family/name/">
+         <dmlExpression><![CDATA[if(( %IB_888_Item_N9BE02 = "10" or %IB_888_Item_N9BE02 = "12" ) and ( %IB_888_Item_N1UZ04 ="PP" or %IB_888_Item_N1UZ04="P2" )) then %IB_888_Item_itemFamily:="LOP" else
+if( %IB_888_Item_N9BE02 = "13" and %IB_888_Item_N1UZ04 = "P5") then %IB_888_Item_itemFamily:="MNY" else
+if( %IB_888_Item_N9BE02="14" and ( %IB_888_Item_N1UZ04 = "PP" or %IB_888_Item_N1UZ04 = "P4" ) ) then %IB_888_Item_itemFamily:="GAR" else
+if( %IB_888_Item_N9BE02 = "15" and %IB_888_Item_N1UZ04 = "P8") then %IB_888_Item_itemFamily:="ESS"  else
+if( %IB_888_Item_N9BE02 = "20" and %IB_888_Item_N1UZ04 = "C2") then %IB_888_Item_itemFamily:="LP" else
+if(%IB_888_Item_N9BE02 = "21" and %IB_888_Item_N1UZ04 = "C4") then %IB_888_Item_itemFamily:="KER" else
+if(%IB_888_Item_N9BE02 = "22" and %IB_888_Item_N1UZ04 = "C8") then %IB_888_Item_itemFamily:= "RK" else
+if( %IB_888_Item_N9BE02="23" and ( %IB_888_Item_N1UZ04 = "C6" or %IB_888_Item_N1UZ04 = "C7" )) then %IB_888_Item_itemFamily:= "MX" else
+if(%IB_888_Item_N9BE02 = "24" and %IB_888_Item_N1UZ04 = "CA") then %IB_888_Item_itemFamily:="SHU" else
+if(%IB_888_Item_N9BE02 = "25" and %IB_888_Item_N1UZ04 = "CP") then %IB_888_Item_itemFamily:= "PO" else
+if(%IB_888_Item_N9BE02 = "26" and %IB_888_Item_N1UZ04 = "CE") then %IB_888_Item_itemFamily:="ESS" else
+if( %IB_888_Item_N9BE02 = "30" and %IB_888_Item_N1UZ04 = "01") then %IB_888_Item_itemFamily:="LC" else
+if(%IB_888_Item_N9BE02="31" and not( %IB_888_Item_N1UZ04 = "51" or %IB_888_Item_N1UZ04 = "52" )) then %IB_888_Item_itemFamily:="FG" else
+if( %IB_888_Item_N9BE02 = "31" and %IB_888_Item_N1UZ04 = "51") then %IB_888_Item_itemFamily:="YSL" else
+if( %IB_888_Item_N9BE02 = "31" and %IB_888_Item_N1UZ04 = "52" ) then %IB_888_Item_itemFamily:="RG" else
+if( %IB_888_Item_N9BE02 = "32" and %IB_888_Item_N1UZ04 = "07" ) then %IB_888_Item_itemFamily:="BT" else
+if( %IB_888_Item_N9BE02 = "33" and %IB_888_Item_N1UZ04 = "15") then %IB_888_Item_itemFamily:="FG"  else
+if(%IB_888_Item_N9BE02 = "34" and %IB_888_Item_N1UZ04 = "45") then %IB_888_Item_itemFamily:="KL" else
+if( %IB_888_Item_N9BE02 = "35" and %IB_888_Item_N1UZ04 = "51") then %IB_888_Item_itemFamily:="YSL" else
+if( %IB_888_Item_N9BE02 = "35" and %IB_888_Item_N1UZ04 = "40" ) then %IB_888_Item_itemFamily:="SHU" else
+if( %IB_888_Item_N9BE02 = "40" and %IB_888_Item_N1UZ04 = "52") then %IB_888_Item_itemFamily:="RG" else
+if( %IB_888_Item_N9BE02 = "40" and %IB_888_Item_N1UZ04 = "13") then %IB_888_Item_itemFamily:="VY" else
+if( %IB_888_Item_N9BE02 = "41" and %IB_888_Item_N1UZ04 = "24") then %IB_888_Item_itemFamily:="LRP"  else
+if( %IB_888_Item_N9BE02 = "42" and %IB_888_Item_N1UZ04 = "42") then %IB_888_Item_itemFamily:="SC";
+
+%IB_888_Item_itemFamily]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1177058233" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_9/">
+         <dmlExpression><![CDATA[formatString(round(%IB_888_Item_eachPerLayer/ %IB_888_Item_eachPerBox,6), "#######D#######")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1711297070" elementPath="/cpi_event/content/G53_segment/sku/vendor/code/">
+         <dmlExpression><![CDATA["LOREAL_CAN"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1330359820" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_1/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G1\N1 [where (item\e01_0098 = "DV" )][1]\e02_0093]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1375571556" elementPath="/cpi_event/content/G53_segment/sku/BOM_flag/">
+         <dmlExpression><![CDATA[if ( %IB_888_Item_G39_loop_count = 1 ) then %IB_888_Item_BOM_loop_count:= 1 else %IB_888_Item_BOM_loop_count:= 0;
+%IB_888_Item_BOM_loop_count]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1601286576" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_5/">
+         <dmlExpression><![CDATA[this\G5\PAL[3]\e09_0065]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1957440205" elementPath="/cpi_event/header/document_type/">
+         <dmlExpression><![CDATA["LO_IB_888_Create_Item"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1407565578" elementPath="/cpi_event/content/G53_segment/sku/UZ_Signature_code/">
+         <dmlExpression><![CDATA[%IB_888_Item_N1UZ04]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="466933782" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_3/">
+         <dmlExpression><![CDATA[this\G5\PAL[1]\e09_0065]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="2016633774" elementPath="/cpi_event/content/G53_segment/sku/">
+         <dmlExpression><![CDATA[for each this\G4]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1559517232" elementPath="/cpi_event/header/source_tenant_uid/">
+         <dmlExpression><![CDATA["LOreal_SAP_" + in:\HEADER\ISA\e15_I14]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1295803080" elementPath="/cpi_event/content/G53_segment/sku/eaches_per_case/">
+         <dmlExpression><![CDATA[if(this\QTY [where ( item\e01_0673 = "38"  and item\C001\e01_0355 = "BX") ][ 1 ]\e02_0380 = 0) then "1" else formatString(this\QTY [where ( item\e01_0673 = "38"  and item\C001\e01_0355 = "BX") ][ 1 ]\e02_0380, "##########D#####") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-133586920" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_4/">
+         <dmlExpression><![CDATA[this\G5\PAL[3]\e07_0082]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1896774618" elementPath="/cpi_event/content/G53_segment/sku/item_cateogry/">
+         <dmlExpression><![CDATA[""]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-431521084" elementPath="/cpi_event/content/G53_segment/sku/external_identifier/">
+         <dmlExpression><![CDATA[trimStringLeft(this\G39 [1]\e03_0234, "0")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-293516663" elementPath="/cpi_event/content/G53_segment/sku/bom_items/bom_item/stock/">
+         <dmlExpression><![CDATA[%IB_888_Item_BOM_loop_count:= %IB_888_Item_BOM_loop_count + 1;
+if ( not(%IB_888_Item_BOM_loop_count = 2 ) )then this\N9 [ where (item\e01_0128 = "ZZ")][1]\e02_0127
+]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1388179123" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_16/">
+         <dmlExpression><![CDATA[this\G5\PAL[1]\e05_0395]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1253665423" elementPath="/cpi_event/content/G53_segment/sku/track_lot_code_by/">
+         <dmlExpression><![CDATA["pallet"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1426736117" elementPath="/Prolog/XmlVersion/">
+         <dmlExpression><![CDATA["1.0"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1567546547" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_2/">
+         <dmlExpression><![CDATA[this\G5\PAL[1]\e07_0082]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="444439115" elementPath="/cpi_event/content/G53_segment/sku/unit_of_measure/">
+         <dmlExpression><![CDATA[%IB_888_Item_UOM := this\QTY[ 1] \C001\e01_0355;
+if( %IB_888_Item_UOM = "EA" ) then "eaches" else if ( %IB_888_Item_UOM = "BX" ) then "cases" else if( %IB_888_Item_UOM = "PL") then "pallets" ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1240074468" elementPath="/cpi_event/content/G53_segment/sku/alternate_code_1/">
+         <dmlExpression><![CDATA[
+this\G39[1]\e24_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-461226967" elementPath="/cpi_event/content/G53_segment/sku/reorder_strategy/">
+         <dmlExpression><![CDATA[if( %IB_888_Item_stock = "false" ) then "Do not reorder" else
+if( not(%IB_888_Item_G62_loop_count = 1) and %IB_888_Item_G39_loop_count =1) then "Do not reorder" else
+"By project, via ISTO"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-337989284" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_12/">
+         <dmlExpression><![CDATA[%IB_888_Item_N98X02]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1104862097" elementPath="/cpi_event/content/G53_segment/sku/customer/">
+         <dmlExpression><![CDATA[""]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-808030220" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_18/">
+         <dmlExpression><![CDATA[this\G5\PAL[3]\e05_0395]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-2022101249" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_22/">
+         <dmlExpression><![CDATA[formatString(round(%IB_888_Item_eachPerPallet / %IB_888_Item_eachPerLayer, 6),  "#######D#######")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="677732114" elementPath="/cpi_event/content/G53_segment/sku/vendor/">
+         <dmlExpression><![CDATA[""]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1799437039" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_15/">
+         <dmlExpression><![CDATA[this\G5\PAL[1]\e08_0189]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1948288086" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_21/">
+         <dmlExpression><![CDATA[this\G5\PAL[2]\e05_0395]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-2092329011" elementPath="/cpi_event/content/G53_segment/sku/description/">
+         <dmlExpression><![CDATA[this\G69[1]\e01_0369]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1927390269" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_25/">
+         <dmlExpression><![CDATA[if (%IB_888_Item_G39_loop_count=1) then %IB_888_Item_Notes]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-2113975423" elementPath="/cpi_event/content/G53_segment/sku/MR_Type_code/">
+         <dmlExpression><![CDATA[%IB_888_Item_N9MR02]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-841205129" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_11/">
+         <dmlExpression><![CDATA[this\N9 [where (item\e01_0128 = "WM")][1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-758830183" elementPath="/cpi_event/content/G53_segment/sku/customer/code/">
+         <dmlExpression><![CDATA["LOR"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-422528190" elementPath="/cpi_event/content/G53_segment/sku/item_cateogry/name/">
+         <dmlExpression><![CDATA[%IB_888_Item_itemCategoryPart1 + "_"+ %IB_888_Item_N98X02]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-415464036" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_7/">
+         <dmlExpression><![CDATA[this\G5[1]\PAL[2]\e07_0082]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1599986820" elementPath="/cpi_event/content/G53_segment/sku/auto_quarantine_on_production/">
+         <dmlExpression><![CDATA[if( %IB_888_Item_stock = "false" ) then "No auto-quarantine" else
+if( not( %IB_888_Item_G62_loop_count = 1 ) and %IB_888_Item_G39_loop_count = 1 ) then  "No auto-quarantine" else
+if ( %IB_888_Item_N9H602 = "N" ) then  "No auto-quarantine" else
+"Activate auto-quarantine"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-219261620" elementPath="/cpi_event/content/G53_segment/G53_loop_count/">
+         <dmlExpression><![CDATA[ %IB_888_Item_NTE_loop:= count( this\NTE );
+%IB_888_Item_NTE_loop_index:=1;
+%IB_888_Item_Notes:="";
+
+while (%IB_888_Item_NTE_loop_index <= %IB_888_Item_NTE_loop)
+{
+	%IB_888_Item_Notes:=%IB_888_Item_Notes + this\NTE [%IB_888_Item_NTE_loop_index] \e02_0352 + " ";
+	%IB_888_Item_NTE_loop_index:= %IB_888_Item_NTE_loop_index + 1
+};
+ 
+ 
+ %IB_888_Item_G62_loop_count:= %IB_888_Item_G62_loop_count + 1;
+%IB_888_Item_G39_loop_count:= 0;
+if %IB_888_Item_G62_loop_count = 1 then "true" else "false"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-383434018" elementPath="/cpi_event/content/G53_segment/sku/item_type/name/">
+         <dmlExpression><![CDATA[%IB_888_Item_itemType]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1104890140" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_6/">
+         <dmlExpression><![CDATA[this\QTY [ where ( item\e01_0673 = "38" and item\C001\e01_0355 = "PH")][ 1 ]\e02_0380]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-942141238" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_23/">
+         <dmlExpression><![CDATA[if (%IB_888_Item_N9H602 ="Y") then "DIN" else
+if( not( %IB_888_Item_N9MR02 = "ZSF") ) then %IB_888_Item_itemCategoryPart1:= "STD" else
+if (( %IB_888_Item_N9BE02 = "40" and %IB_888_Item_N1UZ04 = "13" )or( %IB_888_Item_N9BE02 = "41" and %IB_888_Item_N1UZ04 = "24")) then %IB_888_Item_itemCategoryPart1:= "LOT"
+else if(( %IB_888_Item_N9BE02 = "10" or %IB_888_Item_N9BE02 = "12" ) and ( %IB_888_Item_N1UZ04 ="PP" or %IB_888_Item_N1UZ04="P2" )) then %IB_888_Item_itemFamily:="LOP" else %IB_888_Item_itemCategoryPart1= "STD";
+
+%IB_888_Item_itemCategoryPart1]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1660976284" elementPath="/cpi_event/content/G53_segment/sku/expiry_date_policy/">
+         <dmlExpression><![CDATA[if( %IB_888_Item_stock= "false" ) then "Do not track" else
+if (not(%IB_888_Item_G62_loop_count = 1 ) and %IB_888_Item_G39_loop_count = 1) then "Do not track" else
+if( %IB_888_Item_N9H602 = "Y" ) then "Enter Manually" else 
+if( not(%IB_888_Item_N9MR02 = "ZSF" )) then "Do not track" else
+if( %IB_888_Item_itemFamily = "VY" or %IB_888_Item_itemFamily= "LRP" ) then "Enter Manually" else "Do not track"
+]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="598118646" elementPath="/cpi_event/content/G53_segment/sku/lot_code_policy/">
+         <dmlExpression><![CDATA[if( %IB_888_Item_stock= "false" ) then "Do not track" else
+if (not(%IB_888_Item_G62_loop_count = 1 ) and %IB_888_Item_G39_loop_count = 1) then "Do not track" else
+if( %IB_888_Item_N9H602 = "Y" ) then "Enter Manually" else 
+if( not(%IB_888_Item_N9MR02 = "ZSF" )) then "Do not track" else
+if( %IB_888_Item_itemFamily = "VY" or %IB_888_Item_itemFamily= "LRP" ) then "Enter Manually" else "Do not track"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1844502311" elementPath="/cpi_event/content/G53_segment/sku/custom_item_field_17/">
+         <dmlExpression><![CDATA[this\G5\PAL[3]\e08_0189]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="917809818" elementPath="/cpi_event/content/G53_segment/sku/item_class/">
+         <dmlExpression><![CDATA[""]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="879372506" elementPath="/cpi_event/content/G53_segment/">
+         <dmlExpression><![CDATA[for each in:\TRANSACTION\G3]]></dmlExpression>
+      </mapElement>
+   </mapElements>
+</map>

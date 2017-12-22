@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow xmlns="http://www.axway.com/mappingServices/flow" id="722fe80b-e5be-4f3c-a08a-ea16c9b9de69">
+   <signature appVersion="3.1.2" lastUpdatedOn="19/09/2017 17:54:39 -0400"/>
+   <configurationParameters>
+      <configurationParameter name="stopOnFirstOutputFacetCheckError" value="true"/>
+      <configurationParameter name="stopOnFirstInputCheckConstraintsError" value="true"/>
+      <configurationParameter name="stopOnFirstOutputCheckConstraintsError" value="true"/>
+      <configurationParameter name="checkOutputCheckConstraints" value="false"/>
+      <configurationParameter name="checkInputFacet" value="true"/>
+      <configurationParameter name="continueMessageProcessingOnError" value="false"/>
+      <configurationParameter name="checkInputCheckConstraints" value="false"/>
+      <configurationParameter name="groupAllResultingInstances" value="false"/>
+      <configurationParameter name="checkOutputFacet" value="false"/>
+      <configurationParameter name="keepExactValue" value="false"/>
+      <configurationParameter name="stopOnFirstInputFacetCheckError" value="true"/>
+      <configurationParameter name="copyAllAttributes" value="false"/>
+   </configurationParameters>
+   <graphLinks>
+      <graphLink name="Link1" hash="69753b64-21a1-47b7-b322-842d5ab99d1f">
+         <source ref="9d4bacc7-28c9-4a5c-bed0-2dca2200ec57"/>
+         <target ref="5e5c72f0-72bd-449a-aa42-c879bb2363c5"/>
+      </graphLink>
+      <graphLink factoryType="FlowMainLink" name="FlowLink1" type="TYPE_INPUT" connectedObjectAlias="in" hash="8209ba62-e691-4837-9f5f-cd24dd5fae2b">
+         <source ref="f7952414-0f57-413c-9efb-895fa5b8a1e4"/>
+         <target ref="56036900-fe30-47da-aeb1-bb0ce434616f"/>
+      </graphLink>
+      <graphLink factoryType="FlowMainLink" name="FlowLink2" type="TYPE_OUTPUT" connectedObjectAlias="out" hash="cd25e731-4809-4689-bb13-d086972784d4">
+         <source ref="9d4bacc7-28c9-4a5c-bed0-2dca2200ec57"/>
+         <target ref="6a7751d8-69fa-4dec-b95c-93da6eb8f764"/>
+      </graphLink>
+      <graphLink name="Link2" hash="7166c142-c55d-4904-ba2a-a950327017eb">
+         <source ref="8a98fd8f-4ae7-4671-98e3-ed521ddf38d7"/>
+         <target ref="f7952414-0f57-413c-9efb-895fa5b8a1e4"/>
+      </graphLink>
+      <graphLink name="Link3" hash="0c070645-aba1-407c-81e9-08c2ffda53d1">
+         <source ref="6a7751d8-69fa-4dec-b95c-93da6eb8f764"/>
+         <target ref="f8a9b1e4-4f96-46d2-ae72-f3319c741033"/>
+      </graphLink>
+      <graphLink factoryType="FlowMainLink" name="FlowLink3" type="TYPE_OUTPUT" connectedObjectAlias="out1" hash="5ef090b2-924c-419a-8bc0-8daa85f1018d">
+         <source ref="5e5c72f0-72bd-449a-aa42-c879bb2363c5"/>
+         <target ref="aa487b56-c8bf-4b59-b372-e4b1bbe1ab1e"/>
+      </graphLink>
+      <graphLink factoryType="FlowMainLink" name="FlowLink4" type="TYPE_OUTPUT" connectedObjectAlias="out" hash="204a061e-f31f-4cb9-9479-ad106332b0ae">
+         <source ref="9839caea-8e4b-47f5-ab7f-783ba3241fe2"/>
+         <target ref="f5f8ce6f-c48b-4019-8024-45f0ed925107"/>
+      </graphLink>
+      <graphLink name="Link4" hash="5fbe93d2-d166-4357-b5b6-25456ba48955">
+         <source ref="f5f8ce6f-c48b-4019-8024-45f0ed925107"/>
+         <target ref="6767a393-dd08-4ae3-a854-f9eaccfd797c"/>
+      </graphLink>
+      <graphLink factoryType="FlowMainLink" name="FlowLink5" type="TYPE_INPUT" connectedObjectAlias="in" hash="e4c8e937-beac-40ee-9021-f7ceb1f07e94">
+         <source ref="aa487b56-c8bf-4b59-b372-e4b1bbe1ab1e"/>
+         <target ref="de0ce899-74cd-4569-8cdf-5fa5b6da3f45"/>
+      </graphLink>
+   </graphLinks>
+   <graphNodes>
+      <graphNode factoryType="GraphicalInstructionBlock" name="Main_Block_IB_8881" nameDisplayed="true" hash="56036900-fe30-47da-aeb1-bb0ce434616f">
+         <bounds x="84" height="270" width="240" y="253"/>
+         <intructions>
+            <instruction factoryType="GraphicalInstructionMap" name="IB_888_Item" nameDisplayed="true" mapName="~/Maps/IB_888_Item.mdm" hash="9d4bacc7-28c9-4a5c-bed0-2dca2200ec57">
+               <bounds height="80" width="180" y="20"/>
+            </instruction>
+            <instruction factoryType="GraphicalInstructionOutput" name="Out1" nameDisplayed="true" hash="5e5c72f0-72bd-449a-aa42-c879bb2363c5">
+               <bounds x="4" height="80" width="180" y="150"/>
+               <inputDocumentAlias businessDocument="~/Business Documents/004010_888.bdoc" alias="in"/>
+            </instruction>
+         </intructions>
+      </graphNode>
+      <graphNode factoryType="GraphicalBusinessDocumentEntity" name="004010_888" hash="f7952414-0f57-413c-9efb-895fa5b8a1e4">
+         <bounds x="302" height="80" width="180" y="60"/>
+         <documentName>~/Business Documents/004010_888.bdoc</documentName>
+      </graphNode>
+      <graphNode factoryType="GraphicalBusinessDocumentEntity" name="IB_888_Item" hash="6a7751d8-69fa-4dec-b95c-93da6eb8f764">
+         <bounds x="472" height="80" width="180" y="225"/>
+         <documentName>~/Business Documents/IB_888_Item.bdoc</documentName>
+      </graphNode>
+      <graphNode factoryType="InputEntity" name="Input" hash="8a98fd8f-4ae7-4671-98e3-ed521ddf38d7">
+         <bounds x="117" height="80" width="180" y="60"/>
+      </graphNode>
+      <graphNode factoryType="OutputEntity" name="out1" hash="f8a9b1e4-4f96-46d2-ae72-f3319c741033">
+         <bounds x="1200" height="80" width="180" y="217"/>
+      </graphNode>
+      <graphNode factoryType="GraphicalBusinessDocumentEntity" name="004010_888" hash="aa487b56-c8bf-4b59-b372-e4b1bbe1ab1e">
+         <bounds x="523" height="80" width="180" y="367"/>
+         <documentName>~/Business Documents/004010_888.bdoc</documentName>
+      </graphNode>
+      <graphNode factoryType="GraphicalBusinessDocumentEntity" name="LOreal_888_Estimate" hash="f5f8ce6f-c48b-4019-8024-45f0ed925107">
+         <bounds x="906" height="80" width="180" y="575"/>
+         <documentName>~/Business Documents/LOreal_888_Estimate.bdoc</documentName>
+      </graphNode>
+      <graphNode factoryType="OutputEntity" name="out2" hash="6767a393-dd08-4ae3-a854-f9eaccfd797c">
+         <bounds x="1115" height="80" width="180" y="577"/>
+      </graphNode>
+      <graphNode factoryType="GraphicalInstructionBlock" name="Main_Block_IB_1" nameDisplayed="true" hash="de0ce899-74cd-4569-8cdf-5fa5b6da3f45">
+         <bounds x="665" height="140" width="236" y="532"/>
+         <intructions>
+            <instruction factoryType="GraphicalInstructionMap" name="IB_888_Estimate" nameDisplayed="true" mapName="~/Maps/IB_888_Estimate.mdm" hash="9839caea-8e4b-47f5-ab7f-783ba3241fe2">
+               <bounds height="80" width="180" y="20"/>
+            </instruction>
+         </intructions>
+      </graphNode>
+   </graphNodes>
+</flow>

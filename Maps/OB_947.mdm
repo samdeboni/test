@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map xmlns="http://www.axway.com/mappingServices/map" id="a343cd96-cd87-45b3-bc4f-dfa382af1fa5">
+   <signature appVersion="3.1.2" lastUpdatedOn="04/11/2013 15:07:07 -0500"/>
+   <outputBusinessDocument businessDocument="~/Business Documents/004010_947.bdoc" alias="out"/>
+   <inputBusinessDocuments>
+      <inputBusinessDocument businessDocument="~/Business Documents/OB_947.bdoc" alias="in"/>
+   </inputBusinessDocuments>
+   <mapElements>
+      <mapElement elementHash="-1683343389" elementPath="/TRANSACTION/W15/e02_0031/">
+         <dmlExpression><![CDATA[in:\cpi_event\content\LOREAL_OB_947\W15\W1502]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1694033195" elementPath="/TRANSACTION/G62/e01_0432/">
+         <dmlExpression><![CDATA[in:\cpi_event\content\LOREAL_OB_947\G62\G6201]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1517346836" elementPath="/TRANSACTION/G62/e02_0373/">
+         <dmlExpression><![CDATA[convertToD(in:\cpi_event\content\LOREAL_OB_947\G62\G6202,  "CCYY-MM-DD hh:mm:ss Suhum")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1436795438" elementPath="/TRANSACTION/G3/N9/">
+         <dmlExpression><![CDATA[for each in:\cpi_event\content\LOREAL_OB_947\N9]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1002599068" elementPath="/TRANSACTION/G1/N1/e04_0067/">
+         <dmlExpression><![CDATA[this\N104]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="812385172" elementPath="/TRANSACTION/G3/W19/e08_0234/">
+         <dmlExpression><![CDATA[in:\cpi_event\content\LOREAL_OB_947\W19\W1908]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-605346894" elementPath="/TRANSACTION/G1/N1/e02_0093/">
+         <dmlExpression><![CDATA[this\N102]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1161217818" elementPath="/TRANSACTION/G3/W19/e01_0181/">
+         <dmlExpression><![CDATA[in:\cpi_event\content\LOREAL_OB_947\W19\W1901]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1124846383" elementPath="/TRANSACTION/G3/W19/e02_0477/">
+         <dmlExpression><![CDATA[abs(convertToR(in:\cpi_event\content\LOREAL_OB_947\W19\W1902))]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="569249700" elementPath="/TRANSACTION/ST/e01_0143/">
+         <dmlExpression><![CDATA["947"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="277079293" elementPath="/TRANSACTION/G3/N9/e01_0128/">
+         <dmlExpression><![CDATA[this\N901]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1886135479" elementPath="/TRANSACTION/G3/">
+         <dmlExpression><![CDATA[1 times]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1541278441" elementPath="/TRANSACTION/ST/e02_0329/">
+         <dmlExpression><![CDATA[setDocumentAttribute( "B2BXGISend_IntegrationId", in:\cpi_event\header\document_uid );
+"0001"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1853517649" elementPath="/TRANSACTION/W15/e03_0031/">
+         <dmlExpression><![CDATA[in:\cpi_event\content\LOREAL_OB_947\W15\W1503]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="561368965" elementPath="/TRANSACTION/G1/">
+         <dmlExpression><![CDATA[for each in:\cpi_event\content\LOREAL_OB_947\N1]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-144971453" elementPath="/TRANSACTION/G3/W19/e07_0235/">
+         <dmlExpression><![CDATA[in:\cpi_event\content\LOREAL_OB_947\W19\W1907]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-662071964" elementPath="/TRANSACTION/G1/N1/e03_0066/">
+         <dmlExpression><![CDATA[this\N103]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1071688650" elementPath="/TRANSACTION/G3/N9/e02_0127/">
+         <dmlExpression><![CDATA[this\N902]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-464894421" elementPath="/TRANSACTION/G3/W19/e06_0234/">
+         <dmlExpression><![CDATA[in:\cpi_event\content\LOREAL_OB_947\W19\W1906]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-220771109" elementPath="/TRANSACTION/G62/">
+         <dmlExpression><![CDATA[1 times]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-888789180" elementPath="/TRANSACTION/G3/W19/e04_0438/">
+         <dmlExpression><![CDATA[in:\cpi_event\content\LOREAL_OB_947\W19\W1904]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1104217383" elementPath="/TRANSACTION/G3/W19/e05_0235/">
+         <dmlExpression><![CDATA[in:\cpi_event\content\LOREAL_OB_947\W19\W1905]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-2136459164" elementPath="/TRANSACTION/G1/N1/e01_0098/">
+         <dmlExpression><![CDATA[this\N101]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="240846829" elementPath="/TRANSACTION/G3/W19/e03_0355/">
+         <dmlExpression><![CDATA[in:\cpi_event\content\LOREAL_OB_947\W19\W1903]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1800862288" elementPath="/TRANSACTION/W15/e01_0373/">
+         <dmlExpression><![CDATA[convertToD(in:\cpi_event\content\LOREAL_OB_947\W15\W1501,  "CCYY-MM-DD hh:mm:ss Suhum")]]></dmlExpression>
+      </mapElement>
+   </mapElements>
+</map>

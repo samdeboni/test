@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map xmlns="http://www.axway.com/mappingServices/map" id="eef3b9d6-7f21-438e-9b1a-6dec795de6e3">
+   <signature appVersion="3.1.2" lastUpdatedOn="29/05/2014 15:50:13 -0400"/>
+   <outputBusinessDocument businessDocument="~/Business Documents/LOreal_IB_888.bdoc" alias="out"/>
+   <inputBusinessDocuments>
+      <inputBusinessDocument businessDocument="~/Business Documents/004010_888.bdoc" alias="in"/>
+   </inputBusinessDocuments>
+   <mapElements>
+      <mapElement elementHash="-766405978" elementPath="/cpi_event/content/EA_PER_LR/">
+         <dmlExpression><![CDATA[replaceIfNull(formatString (in:\TRANSACTION\G3[1]\G4[1]\QTY[where (item\e01_0673 = "38") and (item\C001\e01_0355 = "LR")][1]\e02_0380, "#######D#######"), "1")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="363964329" elementPath="/cpi_event/content/BE/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G3[1]\G4[1]\N9[where (item\e01_0128 = "BE")][1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1676138313" elementPath="/Prolog/XmlEncoding/">
+         <dmlExpression><![CDATA["ISO-8859-1"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-206602703" elementPath="/cpi_event/header/event_type/">
+         <dmlExpression><![CDATA["update_item"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-440952164" elementPath="/cpi_event/content/ITEM_DESC/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G3[1]\G4[1]\G69[1]\e01_0369]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-61777261" elementPath="/cpi_event/content/BX_WT/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "BX")][1]\G55\e13_0356, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1080483807" elementPath="/cpi_event/content/PH_HT/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "PH")][1]\G55\e05_0065, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1548783974" elementPath="/cpi_event/content/EA_WIDTH/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "EA")][1]\G55\e07_0189, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1733899689" elementPath="/cpi_event/content/WM/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G3[1]\G4[1]\N9[where (item\e01_0128 = "WM")][1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1599600037" elementPath="/Prolog/XmlVersion/">
+         <dmlExpression><![CDATA["1.0"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-595722820" elementPath="/cpi_event/header/document_type/">
+         <dmlExpression><![CDATA[" "]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1629028057" elementPath="/cpi_event/content/EA_HT/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "EA")][1]\G55\e05_0065, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-963905917" elementPath="/cpi_event/content/SIG_CODE/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G1[where(item\N1\e01_0098 = "UZ")][1]\N1\e04_0067]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="363841493" elementPath="/cpi_event/content/EA_PER_BX/">
+         <dmlExpression><![CDATA[replaceIfNull(formatString (in:\TRANSACTION\G3[1]\G4[1]\QTY[where (item\e01_0673 = "38") and (item\C001\e01_0355 = "BX")][1]\e02_0380, "#######D#######" ), "1")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-432429834" elementPath="/cpi_event/content/EA_PER_PL/">
+         <dmlExpression><![CDATA[replaceIfNull(formatString (in:\TRANSACTION\G3[1]\G4[1]\QTY[where (item\e01_0673 = "38") and (item\C001\e01_0355 = "PL")][1]\e02_0380, "#######D#######"), "1") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1418186795" elementPath="/cpi_event/content/PH_WT/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "PH")][1]\G55\e13_0356, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="582281536" elementPath="/cpi_event/content/ITEM_CODE/">
+         <dmlExpression><![CDATA[trimStringLeft (in:\TRANSACTION\G3[1]\G4[1]\G39\e03_0234, "0" ) ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1944749547" elementPath="/cpi_event/content/EA_PER_PH/">
+         <dmlExpression><![CDATA[replaceIfNull(formatString (in:\TRANSACTION\G3[1]\G4[1]\QTY[where (item\e01_0673 = "38") and (item\C001\e01_0355 = "PH")][1]\e02_0380,  "#######D#######" ), "1")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="844559811" elementPath="/cpi_event/content/BX_LEN/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "BX")][1]\G55\e09_0082, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1556202179" elementPath="/cpi_event/content/EA_LEN/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "EA")][1]\G55\e09_0082, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-290515024" elementPath="/cpi_event/content/PH_LEN/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "PH")][1]\G55\e09_0082, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="674576719" elementPath="/cpi_event/header/event_uid/">
+         <dmlExpression><![CDATA["888_UI_" + replaceStringAll(in:\HEADER\ISA\e06_I06, " ", "") + "_" + in:\HEADER\ISA\e13_I12 + "_" +in:\TRANSACTION\ST\e02_0329 +"_"+in:\HEADER\ISA\e15_I14 + "_"+ formatString(getDate(in:\HEADER\GS\e04_0027), "########")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="719841305" elementPath="/cpi_event/content/BGN/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\BGN\e03_0373]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-943888218" elementPath="/cpi_event/content/UPC_CODE/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G3[1]\G4[1]\G39\e24_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1303035865" elementPath="/cpi_event/header/source_tenant_id/">
+         <dmlExpression><![CDATA["LOreal_SAP_" + in:\HEADER\ISA\e15_I14]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-11949919" elementPath="/cpi_event/content/DIN/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G3[1]\G4[1]\N9[where (item\e01_0128 = "H6")][1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1848588620" elementPath="/cpi_event/content/BX_WIDTH/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "BX")][1]\G55\e07_0189, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="732055672" elementPath="/cpi_event/content/MR/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G3[1]\G4[1]\N9[where (item\e01_0128 = "MR")][1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-954044286" elementPath="/cpi_event/content/SIG_NAME/">
+         <dmlExpression><![CDATA[in:\TRANSACTION\G1[where (item\N1\e01_0098 = "UZ")][1]\N1\e02_0093]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1423915665" elementPath="/cpi_event/content/EA_WT/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "EA")][1]\G55\e13_0356, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-450117567" elementPath="/cpi_event/content/PH_WIDTH/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "PH")][1]\G55\e07_0189, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-287995686" elementPath="/cpi_event/content/BX_HT/">
+         <dmlExpression><![CDATA[formatString (in:\TRANSACTION\G3[1]\G4[1]\G6[where (item\G55\e02_0234 = "BX")][1]\G55\e05_0065, "#######D#######") ]]></dmlExpression>
+      </mapElement>
+   </mapElements>
+</map>

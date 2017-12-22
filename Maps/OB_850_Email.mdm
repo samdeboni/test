@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map xmlns="http://www.axway.com/mappingServices/map" id="84afc944-c593-4944-888c-ad5ce48f21fb">
+   <signature appVersion="3.1.2" lastUpdatedOn="21/01/2014 15:40:24 -0500"/>
+   <outputBusinessDocument businessDocument="~/Business Documents/OB_850_Email_Out.bdoc" alias="out"/>
+   <inputBusinessDocuments>
+      <inputBusinessDocument businessDocument="~/Business Documents/OB_850_Email.bdoc" alias="in"/>
+   </inputBusinessDocuments>
+   <mapElements>
+      <mapElement elementHash="1603838504" elementPath="/Root/po_item/code/">
+         <dmlExpression><![CDATA[in:\cpi_event\content\project\code + "\n"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1121025431" elementPath="/Root/status/project_status/">
+         <dmlExpression><![CDATA[if ( in:\cpi_event\content\project\status = "1" ) then "Closed\n"
+else if (  in:\cpi_event\content\project\status = "2" ) then "Booked\n"
+else if (  in:\cpi_event\content\project\status = "3" ) then "Cancelled\n"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-426875402" elementPath="/Root/contact/contact/">
+         <dmlExpression><![CDATA["Please contact the supplier regarding this PO to proceed with the modification."]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-874865532" elementPath="/Root/for_item/cpc/">
+         <dmlExpression><![CDATA["\n" + in:\cpi_event\content\project\sku\!@customer_product_code! + "\n" ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="37574710" elementPath="/Root/po_item/po_item/">
+         <dmlExpression><![CDATA[if ( in:\cpi_event\content\project\status = "1" ) then %LOreal_IB_850_Email_Status:="Closed"
+else if (  in:\cpi_event\content\project\status = "2" ) then %LOreal_IB_850_Email_Status:="Booked"
+else if (  in:\cpi_event\content\project\status = "3" ) then %LOreal_IB_850_Email_Status:="Cancelled";
+setDocumentAttribute( "B2BXGISend_IntegrationId", in:\cpi_event\header\document_uid );
+setDocumentAttribute("B2BXGISend_SubjectHeader", "PO " + in:\cpi_event\content\project\code + " for " + in:\cpi_event\content\project\plant_name + " was not updated because Project is " + %LOreal_IB_850_Email_Status);
+setDocumentAttribute("B2BXGISend_ProductionFilename",in:\cpi_event\header\document_type + in:\cpi_event\header\document_uid + ".txt"); 
+"The following PO line item:"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1835758980" elementPath="/Root/sent_to/plant_name/">
+         <dmlExpression><![CDATA["\n" + in:\cpi_event\content\project\plant_name + "\n" ]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-740984668" elementPath="/Root/contact/thank_you/">
+         <dmlExpression><![CDATA["\nThank you."]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1242992671" elementPath="/Root/sent_to/sent_to/">
+         <dmlExpression><![CDATA["Sent to:"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="338998000" elementPath="/Root/status/status/">
+         <dmlExpression><![CDATA["Could not be updated because the Project status is currently:"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1416167053" elementPath="/Root/for_item/for_item/">
+         <dmlExpression><![CDATA["For item:"]]></dmlExpression>
+      </mapElement>
+   </mapElements>
+</map>

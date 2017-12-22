@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="utf-8"?>
+<businessDocument xmlns="http://www.axway.com/mappingServices/x12BusinessDocument" id="d9735e33-2758-42fa-8c26-2913a25b760c" encodingBD="iso8859">
+   <signature appVersion="3.1.2" lastUpdatedOn="16/05/2013 14:25:18 -0400"/>
+   <childElements>
+      <childElement factoryType="EdiHeader" order="1" name="HEADER" hash="-131723374">
+         <cardinality maximum="1"/>
+         <childElements>
+            <childElement factoryType="EdiSegment" order="2" label="INTERCHANGE HEADER" name="ISA" hash="102477889">
+               <cardinality maximum="1"/>
+               <childElements>
+                  <childElement factoryType="EdiSimpleElement" hash="241672804" typeId="14" definition="2,2" allowDistortion="true" label="Authorization Information Qualifier" order="3" paddingPosElement="3" encodingElement="iso8859" name="e01_I01">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-2013462704" typeId="11" definition="10,10" allowDistortion="true" label="Authorization Information" order="4" encodingElement="iso8859" name="e02_I02">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-278391288" typeId="14" definition="2,2" allowDistortion="true" label="Security Information Qualifier" order="5" paddingPosElement="3" encodingElement="iso8859" name="e03_I03">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-1926169966" typeId="11" definition="10,10" allowDistortion="true" label="Security Information" order="6" encodingElement="iso8859" name="e04_I04">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="407072586" typeId="14" definition="2,2" allowDistortion="true" label="Interchange ID Qualifier, sender" order="7" paddingPosElement="3" encodingElement="iso8859" name="e05_I05">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="163995921" typeId="11" definition="15,15" allowDistortion="true" label="Interchange Sender ID" order="8" encodingElement="iso8859" name="e06_I06">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="1431956075" typeId="14" definition="2,2" allowDistortion="true" label="Interchange ID Qualifier, receiver" order="9" paddingPosElement="3" encodingElement="iso8859" name="e07_I05">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="1383058730" typeId="11" definition="15,15" allowDistortion="true" label="Interchange Receiver ID" order="10" encodingElement="iso8859" name="e08_I07">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-783344526" typeId="31" definition="6" allowDistortion="true" label="Interchange Date" order="11" pattern="YYMMDD" encodingElement="iso8859" name="e09_I08">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-1408425709" typeId="32" definition="4" allowDistortion="true" label="Interchange Time" order="12" pattern="hhmm" encodingElement="iso8859" name="e10_I09">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="401981238" typeId="14" definition="1,1" allowDistortion="true" label="Interchange Control Standards Identifier" order="13" paddingPosElement="3" encodingElement="iso8859" name="e11_I10">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="712444961" typeId="14" definition="5,5" allowDistortion="true" label="Interchange Control Version Number" order="14" paddingPosElement="3" encodingElement="iso8859" name="e12_I11">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="1028391766" signPlus="+" typeId="60" definition="9,9" allowDistortion="true" label="Interchange Control Number" signMinus="-" order="15" encodingElement="iso8859" name="e13_I12">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-2146804186" typeId="14" definition="1,1" allowDistortion="true" label="Acknowledgment Requested" order="16" paddingPosElement="3" encodingElement="iso8859" name="e14_I13">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-158406151" typeId="14" definition="1,1" allowDistortion="true" label="Usage Indicator" order="17" paddingPosElement="3" encodingElement="iso8859" name="e15_I14">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-1771541706" typeId="11" definition="1,1" allowDistortion="true" label="Component Element Separator" order="18" encodingElement="iso8859" name="e16_I15">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="EdiSegment" order="19" label="GROUP HEADER" name="GS" hash="-167298447">
+               <cardinality maximum="1"/>
+               <childElements>
+                  <childElement factoryType="EdiSimpleElement" hash="1056855989" typeId="14" definition="2,2" allowDistortion="true" label="Functional Identifier Code" order="20" paddingPosElement="3" encodingElement="iso8859" name="e01_0479">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="629299470" typeId="11" definition="2,15" allowDistortion="true" label="Application Sender&apos;s Code" order="21" encodingElement="iso8859" name="e02_0142">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="705040616" typeId="11" definition="2,15" allowDistortion="true" label="Application Receiver&apos;s Code" order="22" encodingElement="iso8859" name="e03_0124">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-1435379175" typeId="30" definition="8" allowDistortion="true" label="Date" order="23" pattern="YYYYMMDD" encodingElement="iso8859" name="e04_0027">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-1443418505" typeId="34" definition="4,8" allowDistortion="true" label="Time" order="24" pattern="hhmmssqq" encodingElement="iso8859" name="e05_0030">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="1323756303" signPlus="+" typeId="60" definition="1,9" allowDistortion="true" label="Group Control Number" decimalCharElement="." signMinus="-" order="25" encodingElement="iso8859" name="e06_0028">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="1345270643" typeId="14" definition="1,2" allowDistortion="true" label="Responsible Agency Code" order="26" paddingPosElement="3" encodingElement="iso8859" name="e07_0455">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-289297743" typeId="11" definition="1,12" allowDistortion="true" label="Version/Release/Industry Identifier Code" order="27" encodingElement="iso8859" name="e08_0480">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+         </childElements>
+      </childElement>
+      <childElement factoryType="EdiMessage" order="28" name="TRANSACTION" hash="-250315247">
+         <cardinality minimum="1" maximum="1"/>
+         <childElements>
+            <childElement factoryType="EdiSegment" order="29" label="Transaction Set Header" name="ST" hash="402823688">
+               <cardinality minimum="1" maximum="1"/>
+               <childElements>
+                  <childElement factoryType="EdiSimpleElement" hash="569249700" typeId="14" definition="3,3" paddingCharElement=" " allowDistortion="true" label="Transaction Set Identifier Code" keepDecimalSeparator="true" order="30" paddingPosElement="3" encodingElement="iso8859" name="e01_0143">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-1541278441" typeId="11" definition="4,9" paddingCharElement=" " allowDistortion="true" label="Transaction Set Control Number" keepDecimalSeparator="true" order="31" paddingPosElement="3" encodingElement="iso8859" name="e02_0329">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="EdiSegment" order="32" label="Warehouse Adjustment Identification" name="W15" hash="2044114680">
+               <cardinality minimum="1" maximum="1"/>
+               <childElements>
+                  <childElement factoryType="EdiSimpleElement" hash="-1800862288" typeId="30" definition="8" allowDistortion="true" label="Date" keepDecimalSeparator="true" order="33" pattern="YYYYMMDD" encodingElement="iso8859" name="e01_0373">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-1683343389" typeId="11" definition="1,22" paddingCharElement=" " allowDistortion="true" label="Adjustment Number" keepDecimalSeparator="true" order="34" paddingPosElement="3" encodingElement="iso8859" name="e02_0031">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="1853517649" typeId="11" definition="1,22" paddingCharElement=" " allowDistortion="true" label="Adjustment Number" keepDecimalSeparator="true" order="35" paddingPosElement="3" encodingElement="iso8859" name="e03_0031">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-904887164" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Transaction Set Purpose Code" keepDecimalSeparator="true" order="36" paddingPosElement="3" encodingElement="iso8859" name="e04_0353">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-288429229" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Transaction Type Code" keepDecimalSeparator="true" order="37" paddingPosElement="3" encodingElement="iso8859" name="e05_0640">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="961228380" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Action Code" keepDecimalSeparator="true" order="38" paddingPosElement="3" encodingElement="iso8859" name="e06_0306">
+                     <cardinality maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="EdiSegmentGroup" order="39" name="G1" hash="561368965">
+               <cardinality minimum="1"/>
+               <childElements>
+                  <childElement factoryType="EdiSegment" order="40" label="Name" name="N1" hash="-1719736673">
+                     <cardinality minimum="1" maximum="1"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="-2136459164" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Entity Identifier Code" keepDecimalSeparator="true" order="41" paddingPosElement="3" encodingElement="iso8859" name="e01_0098">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-605346894" typeId="11" definition="1,60" paddingCharElement=" " allowDistortion="true" label="Name" keepDecimalSeparator="true" order="42" paddingPosElement="3" encodingElement="iso8859" name="e02_0093">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-662071964" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Identification Code Qualifier" keepDecimalSeparator="true" order="43" paddingPosElement="3" encodingElement="iso8859" name="e03_0066">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1002599068" typeId="11" definition="2,80" paddingCharElement=" " allowDistortion="true" label="Identification Code" keepDecimalSeparator="true" order="44" paddingPosElement="3" encodingElement="iso8859" name="e04_0067">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-338154152" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Entity Relationship Code" keepDecimalSeparator="true" order="45" paddingPosElement="3" encodingElement="iso8859" name="e05_0706">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="737973377" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Entity Identifier Code" keepDecimalSeparator="true" order="46" paddingPosElement="3" encodingElement="iso8859" name="e06_0098">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegment" order="47" label="Additional Name Information" name="N2" hash="-671166420">
+                     <cardinality maximum="1"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="79170076" typeId="11" definition="1,60" paddingCharElement=" " allowDistortion="true" label="Name" keepDecimalSeparator="true" order="48" paddingPosElement="3" encodingElement="iso8859" name="e01_0093">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1631024173" typeId="11" definition="1,60" paddingCharElement=" " allowDistortion="true" label="Name" keepDecimalSeparator="true" order="49" paddingPosElement="3" encodingElement="iso8859" name="e02_0093">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegment" order="50" label="Address Information" name="N3" hash="2054235644">
+                     <cardinality maximum="1"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="-1986331059" typeId="11" definition="1,55" paddingCharElement=" " allowDistortion="true" label="Address Information" keepDecimalSeparator="true" order="51" paddingPosElement="3" encodingElement="iso8859" name="e01_0166">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1831680518" typeId="11" definition="1,55" paddingCharElement=" " allowDistortion="true" label="Address Information" keepDecimalSeparator="true" order="52" paddingPosElement="3" encodingElement="iso8859" name="e02_0166">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegment" order="53" label="Geographic Location" name="N4" hash="-1220023668">
+                     <cardinality maximum="1"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="1261162509" typeId="11" definition="2,30" paddingCharElement=" " allowDistortion="true" label="City Name" keepDecimalSeparator="true" order="54" paddingPosElement="3" encodingElement="iso8859" name="e01_0019">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1810453187" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="State or Province Code" keepDecimalSeparator="true" order="55" paddingPosElement="3" encodingElement="iso8859" name="e02_0156">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1090712132" typeId="14" definition="3,15" paddingCharElement=" " allowDistortion="true" label="Postal Code" keepDecimalSeparator="true" order="56" paddingPosElement="3" encodingElement="iso8859" name="e03_0116">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="794596051" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Country Code" keepDecimalSeparator="true" order="57" paddingPosElement="3" encodingElement="iso8859" name="e04_0026">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-850523423" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Location Qualifier" keepDecimalSeparator="true" order="58" paddingPosElement="3" encodingElement="iso8859" name="e05_0309">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="26928807" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Location Identifier" keepDecimalSeparator="true" order="59" paddingPosElement="3" encodingElement="iso8859" name="e06_0310">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegment" order="60" label="Administrative Communications Contact" name="PER" hash="804140845">
+                     <cardinality maximum="5"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="2136311306" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Contact Function Code" keepDecimalSeparator="true" order="61" paddingPosElement="3" encodingElement="iso8859" name="e01_0366">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-702275169" typeId="11" definition="1,60" paddingCharElement=" " allowDistortion="true" label="Name" keepDecimalSeparator="true" order="62" paddingPosElement="3" encodingElement="iso8859" name="e02_0093">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-90658957" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Communication Number Qualifier" keepDecimalSeparator="true" order="63" paddingPosElement="3" encodingElement="iso8859" name="e03_0365">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="276630465" typeId="11" definition="1,80" paddingCharElement=" " allowDistortion="true" label="Communication Number" keepDecimalSeparator="true" order="64" paddingPosElement="3" encodingElement="iso8859" name="e04_0364">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="1233645189" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Communication Number Qualifier" keepDecimalSeparator="true" order="65" paddingPosElement="3" encodingElement="iso8859" name="e05_0365">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1586783274" typeId="11" definition="1,80" paddingCharElement=" " allowDistortion="true" label="Communication Number" keepDecimalSeparator="true" order="66" paddingPosElement="3" encodingElement="iso8859" name="e06_0364">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1388902988" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Communication Number Qualifier" keepDecimalSeparator="true" order="67" paddingPosElement="3" encodingElement="iso8859" name="e07_0365">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1994245414" typeId="11" definition="1,80" paddingCharElement=" " allowDistortion="true" label="Communication Number" keepDecimalSeparator="true" order="68" paddingPosElement="3" encodingElement="iso8859" name="e08_0364">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1307309992" typeId="11" definition="1,20" paddingCharElement=" " allowDistortion="true" label="Contact Inquiry Reference" keepDecimalSeparator="true" order="69" paddingPosElement="3" encodingElement="iso8859" name="e09_0443">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="EdiSegment" order="70" label="Reference Identification" name="N9" hash="-2127597675">
+               <cardinality maximum="10"/>
+               <childElements>
+                  <childElement factoryType="EdiSimpleElement" hash="773093486" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="71" paddingPosElement="3" encodingElement="iso8859" name="e01_0128">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="367801744" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="72" paddingPosElement="3" encodingElement="iso8859" name="e02_0127">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="449322275" typeId="11" definition="1,45" paddingCharElement=" " allowDistortion="true" label="Free-form Description" keepDecimalSeparator="true" order="73" paddingPosElement="3" encodingElement="iso8859" name="e03_0369">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-1187304486" typeId="30" definition="8" allowDistortion="true" label="Date" keepDecimalSeparator="true" order="74" pattern="YYYYMMDD" encodingElement="iso8859" name="e04_0373">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-1681999196" typeId="34" definition="4,8" allowDistortion="true" label="Time" keepDecimalSeparator="true" order="75" pattern="hhmmssqq" encodingElement="iso8859" name="e05_0337">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-914342089" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Time Code" keepDecimalSeparator="true" order="76" paddingPosElement="3" encodingElement="iso8859" name="e06_0623">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiCompositeElement" order="77" name="C040" label="Reference Identifier" hash="442914094">
+                     <cardinality maximum="1"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="-620827638" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="78" paddingPosElement="3" encodingElement="iso8859" name="e01_0128">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-397330734" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="79" paddingPosElement="3" encodingElement="iso8859" name="e02_0127">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="294754796" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="80" paddingPosElement="3" encodingElement="iso8859" name="e03_0128">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-261117759" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="81" paddingPosElement="3" encodingElement="iso8859" name="e04_0127">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1606200524" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="82" paddingPosElement="3" encodingElement="iso8859" name="e05_0128">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="286114555" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="83" paddingPosElement="3" encodingElement="iso8859" name="e06_0127">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="EdiSegment" order="84" label="Contact" name="G61" hash="-1804320836">
+               <cardinality maximum="3"/>
+               <childElements>
+                  <childElement factoryType="EdiSimpleElement" hash="768191572" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Contact Function Code" keepDecimalSeparator="true" order="85" paddingPosElement="3" encodingElement="iso8859" name="e01_0366">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="1096882600" typeId="11" definition="1,60" paddingCharElement=" " allowDistortion="true" label="Name" keepDecimalSeparator="true" order="86" paddingPosElement="3" encodingElement="iso8859" name="e02_0093">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="1158812143" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Communication Number Qualifier" keepDecimalSeparator="true" order="87" paddingPosElement="3" encodingElement="iso8859" name="e03_0365">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="1857651844" typeId="11" definition="1,80" paddingCharElement=" " allowDistortion="true" label="Communication Number" keepDecimalSeparator="true" order="88" paddingPosElement="3" encodingElement="iso8859" name="e04_0364">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-990457213" typeId="11" definition="1,20" paddingCharElement=" " allowDistortion="true" label="Contact Inquiry Reference" keepDecimalSeparator="true" order="89" paddingPosElement="3" encodingElement="iso8859" name="e05_0443">
+                     <cardinality maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="EdiSegment" order="90" label="Date/Time" name="G62" hash="-220771109">
+               <cardinality maximum="5"/>
+               <childElements>
+                  <childElement factoryType="EdiSimpleElement" hash="1694033195" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Date Qualifier" keepDecimalSeparator="true" order="91" paddingPosElement="3" encodingElement="iso8859" name="e01_0432">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="1517346836" typeId="30" definition="8" allowDistortion="true" label="Date" keepDecimalSeparator="true" order="92" pattern="YYYYMMDD" encodingElement="iso8859" name="e02_0373">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="735985398" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Time Qualifier" keepDecimalSeparator="true" order="93" paddingPosElement="3" encodingElement="iso8859" name="e03_0176">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-411428922" typeId="34" definition="4,8" allowDistortion="true" label="Time" keepDecimalSeparator="true" order="94" pattern="hhmmssqq" encodingElement="iso8859" name="e04_0337">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="258538081" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Time Code" keepDecimalSeparator="true" order="95" paddingPosElement="3" encodingElement="iso8859" name="e05_0623">
+                     <cardinality maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="EdiSegment" order="96" label="Note/Special Instruction" name="NTE" hash="-587400851">
+               <cardinality maximum="20"/>
+               <childElements>
+                  <childElement factoryType="EdiSimpleElement" hash="-497892970" typeId="14" definition="3,3" paddingCharElement=" " allowDistortion="true" label="Note Reference Code" keepDecimalSeparator="true" order="97" paddingPosElement="3" encodingElement="iso8859" name="e01_0363">
+                     <cardinality maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="365944230" typeId="11" definition="1,80" paddingCharElement=" " allowDistortion="true" label="Description" keepDecimalSeparator="true" order="98" paddingPosElement="3" encodingElement="iso8859" name="e02_0352">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="EdiSegmentGroup" order="99" name="G2" hash="204995624">
+               <cardinality maximum="10"/>
+               <childElements>
+                  <childElement factoryType="EdiSegment" order="100" label="Code Source Information" name="LM" hash="1503399598">
+                     <cardinality minimum="1" maximum="1"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="662699501" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Agency Qualifier Code" keepDecimalSeparator="true" order="101" paddingPosElement="3" encodingElement="iso8859" name="e01_0559">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="641458175" typeId="11" definition="1,15" paddingCharElement=" " allowDistortion="true" label="Source Subqualifier" keepDecimalSeparator="true" order="102" paddingPosElement="3" encodingElement="iso8859" name="e02_0822">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegment" order="103" label="Industry Code" name="LQ" hash="288709390">
+                     <cardinality/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="343800337" typeId="14" definition="1,3" paddingCharElement=" " allowDistortion="true" label="Code List Qualifier Code" keepDecimalSeparator="true" order="104" paddingPosElement="3" encodingElement="iso8859" name="e01_1270">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="2143064445" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Industry Code" keepDecimalSeparator="true" order="105" paddingPosElement="3" encodingElement="iso8859" name="e02_1271">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="EdiSegmentGroup" order="106" name="G3" hash="-1886135479">
+               <cardinality minimum="1"/>
+               <childElements>
+                  <childElement factoryType="EdiSegment" order="107" label="Warehouse Adjustment Item Detail" name="W19" hash="1922170786">
+                     <cardinality minimum="1" maximum="1"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="-1161217818" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Quantity or Status Adjustment Reason Code" keepDecimalSeparator="true" order="108" paddingPosElement="3" encodingElement="iso8859" name="e01_0181">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" signMinusPos="1" hash="-1124846383" signPlus="+" typeId="51" definition="1,10" paddingCharElement="0" allowDistortion="true" label="Credit/Debit Quantity" decimalCharElement="." signMinus="-" expoChar="e" keepDecimalSeparator="true" order="109" pattern="pMin,pMax" encodingElement="iso8859" name="e02_0477">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="240846829" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Unit or Basis for Measurement Code" keepDecimalSeparator="true" order="110" paddingPosElement="3" encodingElement="iso8859" name="e03_0355">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-888789180" typeId="11" definition="12,12" paddingCharElement=" " allowDistortion="true" label="U.P.C. Case Code" keepDecimalSeparator="true" order="111" paddingPosElement="3" encodingElement="iso8859" name="e04_0438">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1104217383" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Product/Service ID Qualifier" keepDecimalSeparator="true" order="112" paddingPosElement="3" encodingElement="iso8859" name="e05_0235">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-464894421" typeId="11" definition="1,48" paddingCharElement=" " allowDistortion="true" label="Product/Service ID" keepDecimalSeparator="true" order="113" paddingPosElement="3" encodingElement="iso8859" name="e06_0234">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-144971453" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Product/Service ID Qualifier" keepDecimalSeparator="true" order="114" paddingPosElement="3" encodingElement="iso8859" name="e07_0235">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="812385172" typeId="11" definition="1,48" paddingCharElement=" " allowDistortion="true" label="Product/Service ID" keepDecimalSeparator="true" order="115" paddingPosElement="3" encodingElement="iso8859" name="e08_0234">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-648779079" typeId="11" definition="1,12" paddingCharElement=" " allowDistortion="true" label="Warehouse Lot Number" keepDecimalSeparator="true" order="116" paddingPosElement="3" encodingElement="iso8859" name="e09_0451">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" signMinusPos="1" hash="-1948839115" signPlus="+" typeId="51" definition="1,10" paddingCharElement="0" allowDistortion="true" label="Weight" decimalCharElement="." signMinus="-" expoChar="e" keepDecimalSeparator="true" order="117" pattern="pMin,pMax" encodingElement="iso8859" name="e10_0081">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1766941957" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Weight Qualifier" keepDecimalSeparator="true" order="118" paddingPosElement="3" encodingElement="iso8859" name="e11_0187">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="1228125074" typeId="14" definition="1,1" paddingCharElement=" " allowDistortion="true" label="Weight Unit Code" keepDecimalSeparator="true" order="119" paddingPosElement="3" encodingElement="iso8859" name="e12_0188">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" signMinusPos="1" hash="1163667041" signPlus="+" typeId="51" definition="1,10" paddingCharElement="0" allowDistortion="true" label="Weight" decimalCharElement="." signMinus="-" expoChar="e" keepDecimalSeparator="true" order="120" pattern="pMin,pMax" encodingElement="iso8859" name="e13_0081">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-2054762661" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Weight Qualifier" keepDecimalSeparator="true" order="121" paddingPosElement="3" encodingElement="iso8859" name="e14_0187">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="275285849" typeId="14" definition="1,1" paddingCharElement=" " allowDistortion="true" label="Weight Unit Code" keepDecimalSeparator="true" order="122" paddingPosElement="3" encodingElement="iso8859" name="e15_0188">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1699478007" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Inventory Transaction Type Code" keepDecimalSeparator="true" order="123" paddingPosElement="3" encodingElement="iso8859" name="e16_0529">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="335253835" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Product/Service ID Qualifier" keepDecimalSeparator="true" order="124" paddingPosElement="3" encodingElement="iso8859" name="e17_0235">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-765018881" typeId="11" definition="1,48" paddingCharElement=" " allowDistortion="true" label="Product/Service ID" keepDecimalSeparator="true" order="125" paddingPosElement="3" encodingElement="iso8859" name="e18_0234">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegment" order="126" label="Description" name="G69" hash="-314370257">
+                     <cardinality maximum="5"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="-270732114" typeId="11" definition="1,45" paddingCharElement=" " allowDistortion="true" label="Free-form Description" keepDecimalSeparator="true" order="127" paddingPosElement="3" encodingElement="iso8859" name="e01_0369">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegment" order="128" label="Reference Identification" name="N9" hash="-1436795438">
+                     <cardinality maximum="10"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="277079293" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="129" paddingPosElement="3" encodingElement="iso8859" name="e01_0128">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1071688650" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="130" paddingPosElement="3" encodingElement="iso8859" name="e02_0127">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="1996250925" typeId="11" definition="1,45" paddingCharElement=" " allowDistortion="true" label="Free-form Description" keepDecimalSeparator="true" order="131" paddingPosElement="3" encodingElement="iso8859" name="e03_0369">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="1179931773" typeId="30" definition="8" allowDistortion="true" label="Date" keepDecimalSeparator="true" order="132" pattern="YYYYMMDD" encodingElement="iso8859" name="e04_0373">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="985421939" typeId="34" definition="4,8" allowDistortion="true" label="Time" keepDecimalSeparator="true" order="133" pattern="hhmmssqq" encodingElement="iso8859" name="e05_0337">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="1202947368" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Time Code" keepDecimalSeparator="true" order="134" paddingPosElement="3" encodingElement="iso8859" name="e06_0623">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiCompositeElement" order="135" name="C040" label="Reference Identifier" hash="1922326631">
+                           <cardinality maximum="1"/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="72179194" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="136" paddingPosElement="3" encodingElement="iso8859" name="e01_0128">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1071649421" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="137" paddingPosElement="3" encodingElement="iso8859" name="e02_0127">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1337467100" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="138" paddingPosElement="3" encodingElement="iso8859" name="e03_0128">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1109590844" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="139" paddingPosElement="3" encodingElement="iso8859" name="e04_0127">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1260309158" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="140" paddingPosElement="3" encodingElement="iso8859" name="e05_0128">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1333511536" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="141" paddingPosElement="3" encodingElement="iso8859" name="e06_0127">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegment" order="142" label="Contract Summary" name="CS" hash="-1084692632">
+                     <cardinality maximum="1"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="-719674422" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Contract Number" keepDecimalSeparator="true" order="143" paddingPosElement="3" encodingElement="iso8859" name="e01_0367">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="1276602831" typeId="11" definition="1,8" paddingCharElement=" " allowDistortion="true" label="Change Order Sequence Number" keepDecimalSeparator="true" order="144" paddingPosElement="3" encodingElement="iso8859" name="e02_0327">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1594638617" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Release Number" keepDecimalSeparator="true" order="145" paddingPosElement="3" encodingElement="iso8859" name="e03_0328">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="33689635" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="146" paddingPosElement="3" encodingElement="iso8859" name="e04_0128">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-262435895" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="147" paddingPosElement="3" encodingElement="iso8859" name="e05_0127">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-258937785" typeId="11" definition="1,22" paddingCharElement=" " allowDistortion="true" label="Purchase Order Number" keepDecimalSeparator="true" order="148" paddingPosElement="3" encodingElement="iso8859" name="e06_0324">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="1428503331" typeId="14" definition="2,10" paddingCharElement=" " allowDistortion="true" label="Special Services Code" keepDecimalSeparator="true" order="149" paddingPosElement="3" encodingElement="iso8859" name="e07_0560">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-420998591" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="F.O.B. Point Code" keepDecimalSeparator="true" order="150" paddingPosElement="3" encodingElement="iso8859" name="e08_0433">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" signMinusPos="1" hash="-1286509720" signPlus="+" typeId="51" definition="1,10" paddingCharElement="0" allowDistortion="true" label="Percent" decimalCharElement="." signMinus="-" expoChar="e" keepDecimalSeparator="true" order="151" pattern="pMin,pMax" encodingElement="iso8859" name="e09_0954">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" signMinusPos="1" hash="-1505900498" signPlus="+" typeId="51" definition="1,10" paddingCharElement="0" allowDistortion="true" label="Percent" decimalCharElement="." signMinus="-" expoChar="e" keepDecimalSeparator="true" order="152" pattern="pMin,pMax" encodingElement="iso8859" name="e10_0954">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" signMinusPos="1" hash="-2085000277" signPlus="+" typeId="51" definition="1,18" paddingCharElement="0" allowDistortion="true" label="Monetary Amount" decimalCharElement="." signMinus="-" expoChar="e" keepDecimalSeparator="true" order="153" pattern="pMin,pMax" encodingElement="iso8859" name="e11_0782">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="410960829" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Terms Type Code" keepDecimalSeparator="true" order="154" paddingPosElement="3" encodingElement="iso8859" name="e12_0336">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1402011609" typeId="14" definition="2,10" paddingCharElement=" " allowDistortion="true" label="Special Services Code" keepDecimalSeparator="true" order="155" paddingPosElement="3" encodingElement="iso8859" name="e13_0560">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1310223936" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Unit or Basis for Measurement Code" keepDecimalSeparator="true" order="156" paddingPosElement="3" encodingElement="iso8859" name="e14_0355">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" signMinusPos="1" hash="2094085938" signPlus="+" typeId="51" definition="1,17" paddingCharElement="0" allowDistortion="true" label="Unit Price" decimalCharElement="." signMinus="-" expoChar="e" keepDecimalSeparator="true" order="157" pattern="pMin,pMax" encodingElement="iso8859" name="e15_0212">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-1411211428" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Terms Type Code" keepDecimalSeparator="true" order="158" paddingPosElement="3" encodingElement="iso8859" name="e16_0336">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="111740058" typeId="14" definition="1,1" paddingCharElement=" " allowDistortion="true" label="Yes/No Condition or Response Code" keepDecimalSeparator="true" order="159" paddingPosElement="3" encodingElement="iso8859" name="e17_1073">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-146385957" typeId="14" definition="1,1" paddingCharElement=" " allowDistortion="true" label="Yes/No Condition or Response Code" keepDecimalSeparator="true" order="160" paddingPosElement="3" encodingElement="iso8859" name="e18_1073">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegment" order="161" label="Monetary Amount" name="AMT" hash="-632334439">
+                     <cardinality maximum="1"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="-192314148" typeId="14" definition="1,3" paddingCharElement=" " allowDistortion="true" label="Amount Qualifier Code" keepDecimalSeparator="true" order="162" paddingPosElement="3" encodingElement="iso8859" name="e01_0522">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" signMinusPos="1" hash="706001754" signPlus="+" typeId="51" definition="1,18" paddingCharElement="0" allowDistortion="true" label="Monetary Amount" decimalCharElement="." signMinus="-" expoChar="e" keepDecimalSeparator="true" order="163" pattern="pMin,pMax" encodingElement="iso8859" name="e02_0782">
+                           <cardinality minimum="1" maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="350449482" typeId="14" definition="1,1" paddingCharElement=" " allowDistortion="true" label="Credit/Debit Flag Code" keepDecimalSeparator="true" order="164" paddingPosElement="3" encodingElement="iso8859" name="e03_0478">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegment" order="165" label="Date/Time" name="G62" hash="-1073641196">
+                     <cardinality maximum="10"/>
+                     <childElements>
+                        <childElement factoryType="EdiSimpleElement" hash="620849481" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Date Qualifier" keepDecimalSeparator="true" order="166" paddingPosElement="3" encodingElement="iso8859" name="e01_0432">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-715835748" typeId="30" definition="8" allowDistortion="true" label="Date" keepDecimalSeparator="true" order="167" pattern="YYYYMMDD" encodingElement="iso8859" name="e02_0373">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="-148572481" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Time Qualifier" keepDecimalSeparator="true" order="168" paddingPosElement="3" encodingElement="iso8859" name="e03_0176">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="926477856" typeId="34" definition="4,8" allowDistortion="true" label="Time" keepDecimalSeparator="true" order="169" pattern="hhmmssqq" encodingElement="iso8859" name="e04_0337">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                        <childElement factoryType="EdiSimpleElement" hash="685823507" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Time Code" keepDecimalSeparator="true" order="170" paddingPosElement="3" encodingElement="iso8859" name="e05_0623">
+                           <cardinality maximum="1"/>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegmentGroup" order="171" name="G4" hash="999439376">
+                     <cardinality maximum="10"/>
+                     <childElements>
+                        <childElement factoryType="EdiSegment" order="172" label="Code Source Information" name="LM" hash="-1506921415">
+                           <cardinality minimum="1" maximum="1"/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="-1040110709" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Agency Qualifier Code" keepDecimalSeparator="true" order="173" paddingPosElement="3" encodingElement="iso8859" name="e01_0559">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-1941342310" typeId="11" definition="1,15" paddingCharElement=" " allowDistortion="true" label="Source Subqualifier" keepDecimalSeparator="true" order="174" paddingPosElement="3" encodingElement="iso8859" name="e02_0822">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                        <childElement factoryType="EdiSegment" order="175" label="Industry Code" name="LQ" hash="-363926299">
+                           <cardinality/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="-22837961" typeId="14" definition="1,3" paddingCharElement=" " allowDistortion="true" label="Code List Qualifier Code" keepDecimalSeparator="true" order="176" paddingPosElement="3" encodingElement="iso8859" name="e01_1270">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-326395341" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Industry Code" keepDecimalSeparator="true" order="177" paddingPosElement="3" encodingElement="iso8859" name="e02_1271">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegmentGroup" order="178" name="G5" hash="1172716370">
+                     <cardinality maximum="50"/>
+                     <childElements>
+                        <childElement factoryType="EdiSegment" order="179" label="Name" name="N1" hash="1430367987">
+                           <cardinality minimum="1" maximum="1"/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="-251574526" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Entity Identifier Code" keepDecimalSeparator="true" order="180" paddingPosElement="3" encodingElement="iso8859" name="e01_0098">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-789315955" typeId="11" definition="1,60" paddingCharElement=" " allowDistortion="true" label="Name" keepDecimalSeparator="true" order="181" paddingPosElement="3" encodingElement="iso8859" name="e02_0093">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-1393704020" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Identification Code Qualifier" keepDecimalSeparator="true" order="182" paddingPosElement="3" encodingElement="iso8859" name="e03_0066">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-1442883966" typeId="11" definition="2,80" paddingCharElement=" " allowDistortion="true" label="Identification Code" keepDecimalSeparator="true" order="183" paddingPosElement="3" encodingElement="iso8859" name="e04_0067">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1355518968" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Entity Relationship Code" keepDecimalSeparator="true" order="184" paddingPosElement="3" encodingElement="iso8859" name="e05_0706">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="175264560" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Entity Identifier Code" keepDecimalSeparator="true" order="185" paddingPosElement="3" encodingElement="iso8859" name="e06_0098">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                        <childElement factoryType="EdiSegment" order="186" label="Additional Name Information" name="N2" hash="-374085496">
+                           <cardinality maximum="2"/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="-50238087" typeId="11" definition="1,60" paddingCharElement=" " allowDistortion="true" label="Name" keepDecimalSeparator="true" order="187" paddingPosElement="3" encodingElement="iso8859" name="e01_0093">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1168577733" typeId="11" definition="1,60" paddingCharElement=" " allowDistortion="true" label="Name" keepDecimalSeparator="true" order="188" paddingPosElement="3" encodingElement="iso8859" name="e02_0093">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                        <childElement factoryType="EdiSegment" order="189" label="Address Information" name="N3" hash="1507641325">
+                           <cardinality maximum="2"/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="-1931509468" typeId="11" definition="1,55" paddingCharElement=" " allowDistortion="true" label="Address Information" keepDecimalSeparator="true" order="190" paddingPosElement="3" encodingElement="iso8859" name="e01_0166">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="498339747" typeId="11" definition="1,55" paddingCharElement=" " allowDistortion="true" label="Address Information" keepDecimalSeparator="true" order="191" paddingPosElement="3" encodingElement="iso8859" name="e02_0166">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                        <childElement factoryType="EdiSegment" order="192" label="Geographic Location" name="N4" hash="277431342">
+                           <cardinality maximum="1"/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="-1785650771" typeId="11" definition="2,30" paddingCharElement=" " allowDistortion="true" label="City Name" keepDecimalSeparator="true" order="193" paddingPosElement="3" encodingElement="iso8859" name="e01_0019">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="253937534" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="State or Province Code" keepDecimalSeparator="true" order="194" paddingPosElement="3" encodingElement="iso8859" name="e02_0156">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1074048350" typeId="14" definition="3,15" paddingCharElement=" " allowDistortion="true" label="Postal Code" keepDecimalSeparator="true" order="195" paddingPosElement="3" encodingElement="iso8859" name="e03_0116">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-177399393" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Country Code" keepDecimalSeparator="true" order="196" paddingPosElement="3" encodingElement="iso8859" name="e04_0026">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-304685048" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Location Qualifier" keepDecimalSeparator="true" order="197" paddingPosElement="3" encodingElement="iso8859" name="e05_0309">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1965681492" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Location Identifier" keepDecimalSeparator="true" order="198" paddingPosElement="3" encodingElement="iso8859" name="e06_0310">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                        <childElement factoryType="EdiSegment" order="199" label="Contact" name="G61" hash="-727030481">
+                           <cardinality maximum="5"/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="231930332" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Contact Function Code" keepDecimalSeparator="true" order="200" paddingPosElement="3" encodingElement="iso8859" name="e01_0366">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-230354236" typeId="11" definition="1,60" paddingCharElement=" " allowDistortion="true" label="Name" keepDecimalSeparator="true" order="201" paddingPosElement="3" encodingElement="iso8859" name="e02_0093">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-1072618703" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Communication Number Qualifier" keepDecimalSeparator="true" order="202" paddingPosElement="3" encodingElement="iso8859" name="e03_0365">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-493267537" typeId="11" definition="1,80" paddingCharElement=" " allowDistortion="true" label="Communication Number" keepDecimalSeparator="true" order="203" paddingPosElement="3" encodingElement="iso8859" name="e04_0364">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="59634550" typeId="11" definition="1,20" paddingCharElement=" " allowDistortion="true" label="Contact Inquiry Reference" keepDecimalSeparator="true" order="204" paddingPosElement="3" encodingElement="iso8859" name="e05_0443">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegmentGroup" order="205" name="G6" hash="1131883355">
+                     <cardinality/>
+                     <childElements>
+                        <childElement factoryType="EdiSegment" order="206" label="Assigned Number" name="LX" hash="1118144487">
+                           <cardinality minimum="1" maximum="1"/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" signMinusPos="1" hash="1818202886" signPlus="+" typeId="60" definition="6" paddingCharElement="0" allowDistortion="true" label="Assigned Number" signMinus="-" keepDecimalSeparator="true" order="207" paddingPosElement="3" encodingElement="iso8859" name="e01_0554">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                        <childElement factoryType="EdiSegment" order="208" label="Reference Identification" name="N9" hash="992805578">
+                           <cardinality/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="1196763858" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="209" paddingPosElement="3" encodingElement="iso8859" name="e01_0128">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="823572939" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="210" paddingPosElement="3" encodingElement="iso8859" name="e02_0127">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-1722277687" typeId="11" definition="1,45" paddingCharElement=" " allowDistortion="true" label="Free-form Description" keepDecimalSeparator="true" order="211" paddingPosElement="3" encodingElement="iso8859" name="e03_0369">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-270773540" typeId="30" definition="8" allowDistortion="true" label="Date" keepDecimalSeparator="true" order="212" pattern="YYYYMMDD" encodingElement="iso8859" name="e04_0373">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-1250058667" typeId="34" definition="4,8" allowDistortion="true" label="Time" keepDecimalSeparator="true" order="213" pattern="hhmmssqq" encodingElement="iso8859" name="e05_0337">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-1479793937" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Time Code" keepDecimalSeparator="true" order="214" paddingPosElement="3" encodingElement="iso8859" name="e06_0623">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiCompositeElement" order="215" name="C040" label="Reference Identifier" hash="122766366">
+                                 <cardinality maximum="1"/>
+                                 <childElements>
+                                    <childElement factoryType="EdiSimpleElement" hash="-322261410" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="216" paddingPosElement="3" encodingElement="iso8859" name="e01_0128">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="EdiSimpleElement" hash="-1515309520" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="217" paddingPosElement="3" encodingElement="iso8859" name="e02_0127">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="EdiSimpleElement" hash="-498005473" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="218" paddingPosElement="3" encodingElement="iso8859" name="e03_0128">
+                                       <cardinality maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="EdiSimpleElement" hash="-647688293" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="219" paddingPosElement="3" encodingElement="iso8859" name="e04_0127">
+                                       <cardinality maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="EdiSimpleElement" hash="1513171864" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Reference Identification Qualifier" keepDecimalSeparator="true" order="220" paddingPosElement="3" encodingElement="iso8859" name="e05_0128">
+                                       <cardinality maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="EdiSimpleElement" hash="1716283017" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Reference Identification" keepDecimalSeparator="true" order="221" paddingPosElement="3" encodingElement="iso8859" name="e06_0127">
+                                       <cardinality maximum="1"/>
+                                    </childElement>
+                                 </childElements>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                        <childElement factoryType="EdiSegment" order="222" label="Date/Time" name="G62" hash="-1080019223">
+                           <cardinality maximum="1"/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="-269073826" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Date Qualifier" keepDecimalSeparator="true" order="223" paddingPosElement="3" encodingElement="iso8859" name="e01_0432">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="771662489" typeId="30" definition="8" allowDistortion="true" label="Date" keepDecimalSeparator="true" order="224" pattern="YYYYMMDD" encodingElement="iso8859" name="e02_0373">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1905776664" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Time Qualifier" keepDecimalSeparator="true" order="225" paddingPosElement="3" encodingElement="iso8859" name="e03_0176">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1174885787" typeId="34" definition="4,8" allowDistortion="true" label="Time" keepDecimalSeparator="true" order="226" pattern="hhmmssqq" encodingElement="iso8859" name="e04_0337">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-508351560" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Time Code" keepDecimalSeparator="true" order="227" paddingPosElement="3" encodingElement="iso8859" name="e05_0623">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                        <childElement factoryType="EdiSegment" order="228" label="Name" name="N1" hash="1980375735">
+                           <cardinality maximum="1"/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="1375109396" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Entity Identifier Code" keepDecimalSeparator="true" order="229" paddingPosElement="3" encodingElement="iso8859" name="e01_0098">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="2107994109" typeId="11" definition="1,60" paddingCharElement=" " allowDistortion="true" label="Name" keepDecimalSeparator="true" order="230" paddingPosElement="3" encodingElement="iso8859" name="e02_0093">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-2058021574" typeId="14" definition="1,2" paddingCharElement=" " allowDistortion="true" label="Identification Code Qualifier" keepDecimalSeparator="true" order="231" paddingPosElement="3" encodingElement="iso8859" name="e03_0066">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-300751184" typeId="11" definition="2,80" paddingCharElement=" " allowDistortion="true" label="Identification Code" keepDecimalSeparator="true" order="232" paddingPosElement="3" encodingElement="iso8859" name="e04_0067">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-514550713" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Entity Relationship Code" keepDecimalSeparator="true" order="233" paddingPosElement="3" encodingElement="iso8859" name="e05_0706">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="-251899167" typeId="14" definition="2,3" paddingCharElement=" " allowDistortion="true" label="Entity Identifier Code" keepDecimalSeparator="true" order="234" paddingPosElement="3" encodingElement="iso8859" name="e06_0098">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                        <childElement factoryType="EdiSegmentGroup" order="235" name="G7" hash="-483445210">
+                           <cardinality maximum="10"/>
+                           <childElements>
+                              <childElement factoryType="EdiSegment" order="236" label="Code Source Information" name="LM" hash="1174713568">
+                                 <cardinality minimum="1" maximum="1"/>
+                                 <childElements>
+                                    <childElement factoryType="EdiSimpleElement" hash="-1549412924" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Agency Qualifier Code" keepDecimalSeparator="true" order="237" paddingPosElement="3" encodingElement="iso8859" name="e01_0559">
+                                       <cardinality minimum="1" maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="EdiSimpleElement" hash="-844954951" typeId="11" definition="1,15" paddingCharElement=" " allowDistortion="true" label="Source Subqualifier" keepDecimalSeparator="true" order="238" paddingPosElement="3" encodingElement="iso8859" name="e02_0822">
+                                       <cardinality maximum="1"/>
+                                    </childElement>
+                                 </childElements>
+                              </childElement>
+                              <childElement factoryType="EdiSegment" order="239" label="Industry Code" name="LQ" hash="-994132317">
+                                 <cardinality/>
+                                 <childElements>
+                                    <childElement factoryType="EdiSimpleElement" hash="-235410160" typeId="14" definition="1,3" paddingCharElement=" " allowDistortion="true" label="Code List Qualifier Code" keepDecimalSeparator="true" order="240" paddingPosElement="3" encodingElement="iso8859" name="e01_1270">
+                                       <cardinality maximum="1"/>
+                                    </childElement>
+                                    <childElement factoryType="EdiSimpleElement" hash="-1085787786" typeId="11" definition="1,30" paddingCharElement=" " allowDistortion="true" label="Industry Code" keepDecimalSeparator="true" order="241" paddingPosElement="3" encodingElement="iso8859" name="e02_1271">
+                                       <cardinality maximum="1"/>
+                                    </childElement>
+                                 </childElements>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+                  <childElement factoryType="EdiSegmentGroup" order="242" name="G8" hash="-394661016">
+                     <cardinality/>
+                     <childElements>
+                        <childElement factoryType="EdiSegment" order="243" label="Type of Financial Accounting Data" name="FA1" hash="778030256">
+                           <cardinality minimum="1" maximum="1"/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="-945728135" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Agency Qualifier Code" keepDecimalSeparator="true" order="244" paddingPosElement="3" encodingElement="iso8859" name="e01_0559">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1801696312" typeId="14" definition="4,4" paddingCharElement=" " allowDistortion="true" label="Service, Promotion, Allowance, or Charge Code" keepDecimalSeparator="true" order="245" paddingPosElement="3" encodingElement="iso8859" name="e02_1300">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="1188441148" typeId="14" definition="1,1" paddingCharElement=" " allowDistortion="true" label="Allowance or Charge Indicator" keepDecimalSeparator="true" order="246" paddingPosElement="3" encodingElement="iso8859" name="e03_0248">
+                                 <cardinality maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                        <childElement factoryType="EdiSegment" order="247" label="Accounting Data" name="FA2" hash="-417424443">
+                           <cardinality/>
+                           <childElements>
+                              <childElement factoryType="EdiSimpleElement" hash="-317068046" typeId="14" definition="2,2" paddingCharElement=" " allowDistortion="true" label="Breakdown Structure Detail Code" keepDecimalSeparator="true" order="248" paddingPosElement="3" encodingElement="iso8859" name="e01_1196">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                              <childElement factoryType="EdiSimpleElement" hash="816662474" typeId="11" definition="1,80" paddingCharElement=" " allowDistortion="true" label="Financial Information Code" keepDecimalSeparator="true" order="249" paddingPosElement="3" encodingElement="iso8859" name="e02_1195">
+                                 <cardinality minimum="1" maximum="1"/>
+                              </childElement>
+                           </childElements>
+                        </childElement>
+                     </childElements>
+                  </childElement>
+               </childElements>
+            </childElement>
+            <childElement factoryType="EdiSegment" order="250" label="Transaction Set Trailer" name="SE" hash="-182341922">
+               <cardinality maximum="1"/>
+               <childElements>
+                  <childElement factoryType="EdiSimpleElement" signMinusPos="1" hash="1972134911" signPlus="+" typeId="60" definition="10" paddingCharElement="0" allowDistortion="true" label="Number of Included Segments" signMinus="-" keepDecimalSeparator="true" order="251" paddingPosElement="3" encodingElement="iso8859" name="e01_0096">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+                  <childElement factoryType="EdiSimpleElement" hash="-1031914138" typeId="11" definition="4,9" paddingCharElement=" " allowDistortion="true" label="Transaction Set Control Number" keepDecimalSeparator="true" order="252" paddingPosElement="3" encodingElement="iso8859" name="e02_0329">
+                     <cardinality minimum="1" maximum="1"/>
+                  </childElement>
+               </childElements>
+            </childElement>
+         </childElements>
+      </childElement>
+   </childElements>
+</businessDocument>

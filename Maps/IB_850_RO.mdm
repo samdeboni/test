@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map xmlns="http://www.axway.com/mappingServices/map" id="6f77d6b3-1693-4851-abdb-92e0cda0d96c">
+   <signature appVersion="3.1.2" lastUpdatedOn="02/12/2013 12:06:37 -0500"/>
+   <outputBusinessDocument businessDocument="~/Business Documents/IB_850_RO.bdoc" alias="out"/>
+   <inputBusinessDocuments>
+      <inputBusinessDocument businessDocument="~/Business Documents/004010_850.bdoc" alias="in"/>
+   </inputBusinessDocuments>
+   <mapElements>
+      <mapElement elementHash="578891708" elementPath="/cpi_event/content/receive_order/receive_order_items/receive_order_item/external_identifier_ro_item/">
+         <dmlExpression><![CDATA[ if(isNullOrAbsent(this\PO1\e01_0350)) then %IB_850_RO_SAP_PO_Num +"*NA" else %IB_850_RO_SAP_PO_Num + "*"+this\PO1\e01_0350]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="236024683" elementPath="/cpi_event/content/receive_order/flag/">
+         <dmlExpression><![CDATA[if (in:\TRANSACTION\G4 [where (item\N9\e01_0128 = "8X")][1]\N9\e02_0127 = "ZPL" ) then  "True" else "False"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1908045038" elementPath="/cpi_event/content/receive_order/reference/">
+         <dmlExpression><![CDATA[%IB_850_RO_SAP_PO_Num:= in:\TRANSACTION\BEG\e03_0324;
+%IB_850_RO_SAP_PO_Num]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1096670597" elementPath="/cpi_event/header/source_tenant_uid/">
+         <dmlExpression><![CDATA["LOreal_SAP_" + in:\HEADER\ISA\e15_I14]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="801307867" elementPath="/Prolog/XmlEncoding/">
+         <dmlExpression><![CDATA["ISO-8859-1"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-556727717" elementPath="/Prolog/XmlVersion/">
+         <dmlExpression><![CDATA["1.0"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1006274022" elementPath="/cpi_event/content/receive_order/receive_order_items/receive_order_item/unit_of_measure/">
+         <dmlExpression><![CDATA[if(this\PO1\e03_0355 = "EA") then "eaches" else if( this\PO1\e03_0355 = "CA" ) then  "cases"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="659335237" elementPath="/cpi_event/content/receive_order/receive_order_items/receive_order_item/unit_quantity/">
+         <dmlExpression><![CDATA[if ( this\SPI[1]\e07_0353 = "03" or isNullOrAbsent( this\PO1\e02_0330)) then  0  else  this\PO1\e02_0330]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1524165013" elementPath="/cpi_event/content/receive_order/receive_order_items/receive_order_item/plant_code/">
+         <dmlExpression><![CDATA[ this\G22 [where ( item\N1\e01_0098 = "ST")][ 1 ] \N1\e04_0067]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1915693061" elementPath="/cpi_event/header/document_type/">
+         <dmlExpression><![CDATA[if (in:\TRANSACTION\G4 [where (item\N9\e01_0128 = "8X")][1]\N9\e02_0127 = "ZPL" ) then "L'Oreal_IB_850_Receive_Order" else "No document in CPI"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1646625293" elementPath="/cpi_event/content/receive_order/customer/">
+         <dmlExpression><![CDATA["LOR"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1846306562" elementPath="/cpi_event/content/receive_order/receive_order_items/receive_order_item/sku/customer_product_code/">
+         <dmlExpression><![CDATA[this\PO1\e09_0234
+]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1446730663" elementPath="/cpi_event/content/receive_order/receive_order_items/receive_order_item/">
+         <dmlExpression><![CDATA[for each in:\TRANSACTION\G11]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1535809482" elementPath="/cpi_event/content/receive_order/external_identifier/">
+         <dmlExpression><![CDATA[if (isNullOrAbsent(this\PO1\e08_0235)) then %IB_850_RO_SAP_ProCode:= "NA" else %IB_850_RO_SAP_ProCode:= this\PO1\e09_0234;
+%IB_850_RO_SAP_PO_Num +"*"+ %IB_850_RO_SAP_ProCode]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="511849058" elementPath="/cpi_event/content/receive_order/receive_order_items/receive_order_item/vendor/code/">
+         <dmlExpression><![CDATA["PLV"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-541732064" elementPath="/cpi_event/header/event_type/">
+         <dmlExpression><![CDATA["create_receive_order"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="604470075" elementPath="/cpi_event/header/event_uid/">
+         <dmlExpression><![CDATA["RO_" + replaceStringAll(in:\HEADER\ISA\e06_I06, " ", "") + "_" + in:\HEADER\ISA\e13_I12 + "_" +in:\TRANSACTION\ST\e02_0329 +"_"+in:\HEADER\ISA\e15_I14]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1754295748" elementPath="/cpi_event/content/receive_order/expected_delivery_at/">
+         <dmlExpression><![CDATA[this\DTM [ where( item\e01_0374 = "010")][1]\e02_0373]]></dmlExpression>
+      </mapElement>
+   </mapElements>
+</map>

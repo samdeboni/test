@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map xmlns="http://www.axway.com/mappingServices/map" id="cbef9c78-1f5a-4aa2-8935-9995ec6125fe">
+   <signature appVersion="3.1.2" lastUpdatedOn="16/06/2015 15:50:34 -0400"/>
+   <outputBusinessDocument businessDocument="~/Business Documents/IB_850_Pro.bdoc" alias="out"/>
+   <inputBusinessDocuments>
+      <inputBusinessDocument businessDocument="~/Business Documents/004010_850.bdoc" alias="in"/>
+   </inputBusinessDocuments>
+   <mapElements>
+      <mapElement elementHash="753170835" elementPath="/cpi_event/content/project/item_projects/item_project/">
+         <dmlExpression><![CDATA[for each in:\TRANSACTION\G11]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1886622028" elementPath="/cpi_event/content/project/description/">
+         <dmlExpression><![CDATA[if(  isNullOrAbsent(this\G22\N1 [ where ( item\e01_0098 = "ST" )] [ 1 ]\e02_0093 ) ) then %IB_850_Pro_ST_Code := "NA" else %IB_850_Pro_ST_Code:= this\G22\N1 [ where ( item\e01_0098 = "ST" )] [ 1 ]\e02_0093 ;
+if ( isNullOrAbsent( this\G22\N3[1]\e01_0166) ) then %IB_850_Pro_N301:= "NA" else %IB_850_Pro_N301:= this\G22\N3[1]\e01_0166;
+if( isNullOrAbsent( this\G22\N4[1]\e01_0019  ) ) then %IB_850_Pro_N401:= "NA" else %IB_850_Pro_N401:= this\G22\N4[1]\e01_0019 ;
+if( isNullOrAbsent( this\G22\N4[1]\e02_0156  ) ) then %IB_850_Pro_N402:= "NA" else %IB_850_Pro_N402:= this\G22\N4[1]\e02_0156 ;
+if( isNullOrAbsent( this\G24\MSG[1]\e01_0933) ) then %IB_850_Pro_MSG01:= "NA" else %IB_850_Pro_MSG01 :=this\G24\MSG[1]\e01_0933;
+"SHIP TO:" + %IB_850_Pro_ST_Code + " " + %IB_850_Pro_N301 + " " + %IB_850_Pro_N401 + %IB_850_Pro_N402 + " --NOTES: " + %IB_850_Pro_MSG01]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1696471736" elementPath="/cpi_event/content/project/project_type/">
+         <dmlExpression><![CDATA["item"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1007570738" elementPath="/cpi_event/content/project/item_projects/item_project/status/">
+         <dmlExpression><![CDATA[if (this\SPI[1]\e07_0353 = "03") then "3" else "0"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="752575711" elementPath="/cpi_event/content/project/expected_unit_quantity/">
+         <dmlExpression><![CDATA[this\PO1\e02_0330]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-841778474" elementPath="/cpi_event/content/project/reference_1/">
+         <dmlExpression><![CDATA[this\G22 [1]\REF [ where (item\e01_0128 = "Q1")][1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1110761261" elementPath="/Prolog/XmlVersion/">
+         <dmlExpression><![CDATA["1.0"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1242544921" elementPath="/cpi_event/content/project/item_projects/item_project/reference_3/">
+         <dmlExpression><![CDATA[this\G22 [1]\REF [ where (item\e01_0128 ="ST")][1]\e02_0127]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="585419711" elementPath="/cpi_event/content/project/plant_code/">
+         <dmlExpression><![CDATA[%IB_850_Pro_N902:= in:\TRANSACTION\G4[ where ( item\N9\e01_0128 = "SI" ) ][ 1 ]\N9\e02_0127;
+%plant_code:= in:\TRANSACTION\G5 [ where ( item\N1\e03_0066 = "92")][ 1 ]\N1\e04_0067;
+%plant_code]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1489675042" elementPath="/cpi_event/content/project/due_date_at/">
+         <dmlExpression><![CDATA[if ( isNullOrAbsent(in:\TRANSACTION\G4 [ where ( item\N9\e01_0128) = "PO"][1]\N9\e02_0127) ) then %IB_850_Pro_PO_Line_Num_1:="NA" else %IB_850_Pro_PO_Line_Num_1:=in:\TRANSACTION\G4 [ where ( item\N9\e01_0128) = "PO"][1]\N9\e02_0127;
+in:\TRANSACTION\DTM [ where ( item\e01_0374 = "010")][1]\e02_0373]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="997057796" elementPath="/cpi_event/header/event_type/">
+         <dmlExpression><![CDATA["create_project"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1557796412" elementPath="/cpi_event/content/project/external_identifier/">
+         <dmlExpression><![CDATA[if ( isNullOrAbsent ( this\PO1\e01_0350) ) then %IB_850_Pro_PO_Line_Num_2:="NA" else %IB_850_Pro_PO_Line_Num_2:=this\PO1\e01_0350;
+%IB_850_Pro_PO_Line_Num:= %IB_850_Pro_PO_Line_Num_1 + "-" + %IB_850_Pro_PO_Line_Num_2;
+%IB_850_Pro_PO_Line_Num]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1986604049" elementPath="/cpi_event/content/project/customer/">
+         <dmlExpression><![CDATA["LOR"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="797396632" elementPath="/Prolog/XmlEncoding/">
+         <dmlExpression><![CDATA["ISO-8859-1"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="2036463629" elementPath="/cpi_event/header/document_type/">
+         <dmlExpression><![CDATA[if (in:\TRANSACTION\G4 [where (item\N9\e01_0128 = "8X")][1]\N9\e02_0127 = "YSC" ) then "L'Oreal_IB_850_Project" else "No Document in CPI"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1248057790" elementPath="/cpi_event/header/source_tenant_uid/">
+         <dmlExpression><![CDATA["LOreal_SAP_" + in:\HEADER\ISA\e15_I14]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1331126112" elementPath="/cpi_event/content/project/item_projects/item_project/sku/customer_product_code/">
+         <dmlExpression><![CDATA[this\PO1\e09_0234]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-1676697102" elementPath="/cpi_event/header/event_uid/">
+         <dmlExpression><![CDATA[%IB_850_Pro_integration_id:="Pro_" + replaceStringAll(in:\HEADER\ISA\e06_I06, " ", "") + "_" + in:\HEADER\ISA\e13_I12 + "_" +in:\TRANSACTION\ST\e02_0329 +"_"+in:\HEADER\ISA\e15_I14;
+setDocumentAttribute("B2BXGISend_IntegrationId", %IB_850_Pro_integration_id);
+%IB_850_Pro_integration_id]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1871808157" elementPath="/cpi_event/content/project/flag/">
+         <dmlExpression><![CDATA[if (in:\TRANSACTION\G4 [where (item\N9\e01_0128 = "8X")][1]\N9\e02_0127 = "YSC" ) then  "True" else "False"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1675976598" elementPath="/cpi_event/content/project/item_projects/item_project/reference_2/">
+         <dmlExpression><![CDATA[if (%plant_code = "0000037544") then formatString(this\PO1\e04_0212, "#########D#####")]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="928945134" elementPath="/cpi_event/content/project/expected_unit_of_measure/">
+         <dmlExpression><![CDATA[if(this\PO1\e03_0355 = "EA") then "eaches" else if(this\PO1\e03_0355 = "CA") then "cases"]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="1350578159" elementPath="/cpi_event/content/project/code/">
+         <dmlExpression><![CDATA[%IB_850_Pro_PO_Line_Num]]></dmlExpression>
+      </mapElement>
+      <mapElement elementHash="-521296588" elementPath="/cpi_event/content/project/item_projects/item_project/shipment_number/">
+         <dmlExpression><![CDATA[%IB_850_Pro_N902]]></dmlExpression>
+      </mapElement>
+   </mapElements>
+</map>
