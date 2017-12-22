@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <flow xmlns="http://www.axway.com/mappingServices/flow" id="01c2e63c-4137-4737-871a-9520f7d35360">
-   <signature appVersion="3.1.2" lastUpdatedOn="12/09/2017 19:21:55 -0400"/>
+   <signature appVersion="3.1.2" lastUpdatedOn="22/12/2017 15:22:39 -0500"/>
    <configurationParameters>
       <configurationParameter name="checkInputFacet" value="true"/>
       <configurationParameter name="stopOnFirstInputFacetCheckError" value="true"/>
@@ -55,7 +55,7 @@
    </graphLinks>
    <graphNodes>
       <graphNode factoryType="InputEntity" name="Input" hash="3b6cd5d1-37c7-46f4-82ba-3175095a8cea">
-         <bounds height="80" width="180" y="68"/>
+         <bounds height="80" width="180" y="44"/>
       </graphNode>
       <graphNode factoryType="OutputEntity" name="850_RO" hash="4258c75f-81ea-4c8f-a01a-6ef75e1e6f43">
          <bounds x="818" height="80" width="180" y="152"/>
